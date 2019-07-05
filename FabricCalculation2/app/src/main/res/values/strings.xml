@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Fabric Calculation</string>
+    <string name="tablecloth">桌布</string>
+    <string name="skirt">桌裙</string>
+    <string name="sash">Sash</string>
+    <string name="chaircover">椅套</string>
+    <string name="clip">Clip</string>
+    <string name="napkin">餐巾</string>
+</resources>
