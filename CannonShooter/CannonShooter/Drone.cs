@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CannonShooter
 {
-    class FloatingTarget : Target
+    class Drone : Target
     {
     }
 }

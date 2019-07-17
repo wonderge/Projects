@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace CannonShooter
 {
-    class HeavyBall : Projectile
+    class RockBall : Projectile
     {
-
     }
 }

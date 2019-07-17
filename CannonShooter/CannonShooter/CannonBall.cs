@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CannonShooter
 {
-    class TankTarget : Target
+    class CannonBall : Projectile
     {
+
     }
 }

@@ -8,3 +8,13 @@ C:\Users\Winston\Desktop\My Files\Homemade Projects\CannonShooter\CannonShooter\
 C:\Users\Winston\Desktop\My Files\Homemade Projects\CannonShooter\CannonShooter\obj\Debug\CannonShooter.exe
 C:\Users\Winston\Desktop\My Files\Homemade Projects\CannonShooter\CannonShooter\obj\Debug\CannonShooter.pdb
 C:\Users\Winston\Desktop\My Files\Homemade Projects\CannonShooter\CannonShooter\obj\Debug\CannonShooter.Form1.resources
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\bin\Debug\CannonShooter.exe.config
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\bin\Debug\CannonShooter.exe
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\bin\Debug\CannonShooter.pdb
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.csprojAssemblyReference.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.Form1.resources
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.Properties.Resources.resources
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.csproj.GenerateResource.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.csproj.CoreCompileInputs.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.exe
+C:\Users\Winston\Desktop\My Files\Homemade Projects\project\CannonShooter\CannonShooter\obj\Debug\CannonShooter.pdb
