@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  tools:context=".NapkinView">
+
+  <RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RadioButton
+      android:id="@+id/radBtnHemmed"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/hemmed"
+      android:textSize="@dimen/fontSize" />
+
+    <RadioButton
+      android:id="@+id/radBtnMarrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/marrow"
+      android:textSize="@dimen/fontSize" />
+  </RadioGroup>
+
+  <EditText
+    android:id="@+id/txtAmount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/amount"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/length"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/width"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtFabricWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricWidth"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtFabricYard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricYard"
+    android:inputType="numberDecimal" />
+
+  <Button
+    android:id="@+id/btnNapkinCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:text="@string/calculate"
+    android:textSize="@dimen/fontSize" />
+
+  <TextView
+    android:id="@+id/lblNapkinResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:textSize="@dimen/fontSize" />
+</LinearLayout>

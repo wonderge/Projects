@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical"
+  tools:context=".StartScreenView">
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button
+      android:id="@+id/btnNapkin"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="100dp"
+      android:layout_marginEnd="100dp"
+      android:text="@string/napkin"
+      android:textSize="@dimen/fontSize" />
+
+    <Button
+      android:id="@+id/btnTablecloth"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/tablecloth"
+      android:textSize="@dimen/fontSize" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:orientation="horizontal">
+    <Button
+      android:id="@+id/btnSash"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="100dp"
+      android:layout_marginEnd="100dp"
+      android:text="@string/sash"
+      android:textAllCaps="false"
+      android:textSize="@dimen/fontSize" />
+
+    <Button
+      android:id="@+id/btnSkirt"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/skirt"
+      android:textSize="@dimen/fontSize" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:orientation="horizontal">
+    <Button
+      android:id="@+id/btnClip"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="100dp"
+      android:layout_marginEnd="100dp"
+      android:text="@string/clip"
+      android:textAllCaps="false"
+      android:textSize="@dimen/fontSize" />
+
+    <Button
+      android:id="@+id/btnChairCover"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/chaircover"
+      android:textSize="@dimen/fontSize" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:orientation="horizontal">
+    <Button
+      android:id="@+id/btnFlower"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="100dp"
+      android:layout_marginEnd="100dp"
+      android:text="@string/flower"
+      android:textSize="@dimen/fontSize" />
+
+    <Button
+      android:id="@+id/btnCurtain"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/curtain"
+      android:textSize="@dimen/fontSize"/>
+  </LinearLayout>
+</LinearLayout>

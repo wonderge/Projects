@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical"
+  tools:context=".FlowerView">
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <EditText
+      android:id="@+id/txt80"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="80cm"
+      android:inputType="numberDecimal" />
+
+    <EditText
+      android:id="@+id/txt70"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="70cm"
+      android:inputType="numberDecimal" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:orientation="horizontal">
+    <EditText
+      android:id="@+id/txt60"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="60cm"
+      android:inputType="numberDecimal" />
+
+    <EditText
+      android:id="@+id/txt50"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="50cm"
+      android:inputType="numberDecimal" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:orientation="horizontal">
+    <EditText
+      android:id="@+id/txt40"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="40cm"
+      android:inputType="numberDecimal" />
+
+    <EditText
+      android:id="@+id/txt30"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="30cm"
+      android:inputType="numberDecimal" />
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:orientation="horizontal">
+    <EditText
+      android:id="@+id/txt20"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="20cm"
+      android:inputType="numberDecimal" />
+
+    <EditText
+      android:id="@+id/txt15"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="5"
+      android:hint="15cm"
+      android:inputType="numberDecimal" />
+  </LinearLayout>
+
+  <EditText
+    android:id="@+id/txt10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="5"
+    android:hint="10cm"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/length"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/width"
+    android:inputType="numberDecimal" />
+
+  <Button
+    android:id="@+id/btnFlowerCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:text="@string/calculate"
+    android:textSize="@dimen/fontSize" />
+
+  <TextView
+    android:id="@+id/lblFlowerResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:textSize="@dimen/fontSize" />
+</LinearLayout>

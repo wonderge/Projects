@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="wonder.yahoo.ca.fabriccalculation">
+  package="wonder.yahoo.ca.fabriccalculation">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".StartScreen"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <activity android:name=".CurtainView"></activity>
+    <activity
+      android:name=".StartScreenView"
+      android:screenOrientation="portrait">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Napkin"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Tablecloth"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Sash"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Skirt"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Clip"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ChairCover"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".TableclothChoice"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Roundcloth" />
-        <activity android:name=".Flower"></activity>
-    </application>
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity
+      android:name=".NapkinView"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".TableclothView"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".SashView"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".SkirtView"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".ClipView"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".ChairCoverView"
+      android:screenOrientation="portrait" />
+    <activity
+      android:name=".TableclothChoiceView"
+      android:screenOrientation="portrait" />
+    <activity android:name=".RoundclothView" />
+    <activity android:name=".FlowerView" />
+  </application>
 
 </manifest>

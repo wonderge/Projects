@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical"
+  tools:context=".CurtainView">
+
+  <RadioGroup
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <RadioButton
+        android:id="@+id/radBtnOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OneMultiple"
+        android:textSize="@dimen/fontSize" />
+
+      <RadioButton
+        android:id="@+id/radBtnOneFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/OnePointFiveMultiple"
+        android:textSize="@dimen/fontSize" />
+
+      <RadioButton
+        android:id="@+id/radBtnTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TwoMultiple"
+        android:textSize="@dimen/fontSize" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+      <RadioButton
+        android:id="@+id/radBtnTwoFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TwoPointFiveMultiple"
+        android:textSize="@dimen/fontSize" />
+
+      <RadioButton
+        android:id="@+id/radBtnThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ThreeMultiple"
+        android:textSize="@dimen/fontSize" />
+
+      <RadioButton
+        android:id="@+id/radBtnThreeFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ThreePointFiveMultiple"
+        android:textSize="@dimen/fontSize" />
+    </LinearLayout>
+  </RadioGroup>
+
+  <EditText
+    android:id="@+id/txtCurtainAmount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/amount" />
+
+  <EditText
+    android:id="@+id/txtCurtainLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/length" />
+
+  <EditText
+    android:id="@+id/txtCurtainWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/width" />
+
+  <EditText
+    android:id="@+id/txtCurtainFabricWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricWidth" />
+
+  <Button
+    android:id="@+id/btnCurtainCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:text="@string/calculate" />
+
+  <TextView
+    android:id="@+id/lblCurtainResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:textSize="@dimen/fontSize"/>
+</LinearLayout>

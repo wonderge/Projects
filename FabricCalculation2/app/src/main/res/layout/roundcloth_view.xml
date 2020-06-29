@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  tools:context=".RoundclothView">
+
+  <EditText
+    android:id="@+id/txtAmount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:hint="@string/amount"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtDiameter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/diameter"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtFabricWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricWidth"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtFabricYard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricYard"
+    android:inputType="numberDecimal" />
+
+  <Button
+    android:id="@+id/btnRoundclothCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:text="@string/calculate"
+    android:textSize="@dimen/fontSize" />
+
+  <TextView
+    android:id="@+id/lblRoundclothResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:textSize="@dimen/fontSize" />
+
+  <TextView
+    android:id="@+id/lblSideLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:textSize="@dimen/fontSize" />
+</LinearLayout>

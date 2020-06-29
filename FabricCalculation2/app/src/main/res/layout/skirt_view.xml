@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical"
+  tools:context=".SkirtView">
+
+  <RadioGroup
+    android:id="@+id/radioGroup2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RadioButton
+      android:id="@+id/radBtnHemmed"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/hemmed"
+      android:textSize="@dimen/fontSize" />
+
+    <RadioButton
+      android:id="@+id/radBtnMarrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/marrow"
+      android:textSize="@dimen/fontSize" />
+  </RadioGroup>
+
+  <RadioGroup
+    android:id="@+id/radioGroup3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:orientation="horizontal">
+
+    <RadioButton
+      android:id="@+id/radBtnDense"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/dense"
+      android:textSize="18sp" />
+
+    <RadioButton
+      android:id="@+id/radBtnPleat"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/boxPleat"
+      android:textSize="18sp" />
+
+    <RadioButton
+      android:id="@+id/radBtnOneInch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text='@string/oneInch'
+      android:textSize="18sp" />
+
+    <RadioButton
+      android:id="@+id/radBtnTwoInch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text='@string/twoInch'
+      android:textSize="18sp" />
+
+    <RadioButton
+      android:id="@+id/radBtnThreeInch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text='@string/threeInch'
+      android:textSize="18sp" />
+  </RadioGroup>
+
+  <EditText
+    android:id="@+id/txtAmount"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/amount"
+    android:inputType="numberDecimal" />
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <EditText
+      android:id="@+id/txtFeet"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margin"
+      android:ems="5"
+      android:hint="@string/lengthInFeet"
+      android:inputType="numberDecimal" />
+
+    <EditText
+      android:id="@+id/txtInch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margin"
+      android:ems="5"
+      android:hint="@string/lengthInInch"
+      android:inputType="numberDecimal" />
+  </LinearLayout>
+
+  <EditText
+    android:id="@+id/txtHeight"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/height"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtFabricWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricWidth"
+    android:inputType="numberDecimal" />
+
+  <EditText
+    android:id="@+id/txtFabricYard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/fabricYard"
+    android:inputType="numberDecimal" />
+
+  <Button
+    android:id="@+id/btnSkirtCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:text="计算"
+    android:textSize="@dimen/fontSize" />
+
+  <TextView
+    android:id="@+id/lblSkirtResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:textSize="18sp" />
+</LinearLayout>
