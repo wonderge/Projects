@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical"
+  tools:context=".RectangleToNapkinView">
+
+  <EditText
+    android:id="@+id/txtClothLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:hint="@string/clothLength"
+    android:inputType="numberDecimal"/>
+
+  <EditText
+    android:id="@+id/txtClothWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:layout_marginTop="@dimen/margin"
+    android:hint="@string/clothWidth"
+    android:inputType="numberDecimal"/>
+
+  <EditText
+    android:id="@+id/txtRetangleNapkinLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:ems="10"
+    android:hint="@string/napkin"
+    android:inputType="numberDecimal"/>
+
+  <Button
+    android:id="@+id/btnRectangleNapkinCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"
+    android:text="@string/calculate"
+    android:textSize="@dimen/fontSize"/>
+
+  <TextView
+    android:id="@+id/lblRectangleNapkinResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

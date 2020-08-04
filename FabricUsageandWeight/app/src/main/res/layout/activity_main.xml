@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+  <EditText
+      android:id="@+id/txtWeight"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:hint="@string/Weight"
+      android:inputType="number" />
+
+  <RadioGroup
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/radbtnSatin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/Satin"
+        android:textSize="18sp" />
+
+    <RadioButton
+        android:id="@+id/radbtnPoplin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Poplin"
+        android:textSize="18sp" />
+
+  </RadioGroup>
+
+  <RadioGroup
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/radbtnSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/SmallTube"
+        android:textSize="18sp" />
+
+    <RadioButton
+        android:id="@+id/radbtnBig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BigTube"
+        android:textSize="18sp" />
+
+  </RadioGroup>
+
+  <Button
+      android:id="@+id/btnCalculate"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:textAllCaps="false"
+      android:text="@string/Calculate"
+      android:textSize="18sp"/>
+
+  <TextView
+      android:id="@+id/lblResult"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="40dp"
+      android:textSize="18sp"/>
+</androidx.appcompat.widget.LinearLayoutCompat>

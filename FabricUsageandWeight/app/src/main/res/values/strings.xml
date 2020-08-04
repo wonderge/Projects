@@ -1,0 +1,9 @@
+<resources>
+  <string name="app_name">布料重量</string>
+  <string name="Weight">重量</string>
+  <string name="Satin">Satin</string>
+  <string name="Poplin">Poplin</string>
+  <string name="SmallTube">小棍</string>
+  <string name="BigTube">大棍</string>
+  <string name="Calculate">计算</string>
+</resources>
