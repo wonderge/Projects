@@ -2,7 +2,7 @@ package wonder.yahoo.ca.fabriccalculation;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,7 +20,9 @@ public class TableclothChoiceView extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         Intent gotoTablecloth = new Intent(getApplicationContext(), TableclothView.class);
+        finish();
         startActivity(gotoTablecloth);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
       }
     });
 
@@ -28,8 +30,17 @@ public class TableclothChoiceView extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         Intent gotoRoundcloth = new Intent(getApplicationContext(), RoundclothView.class);
+        finish();
         startActivity(gotoRoundcloth);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
       }
     });
+  }
+
+  @Override
+  public void onBackPressed() {
+    finish();
+    startActivity(new Intent(this, StartScreenView.class));
+    overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
   }
 }

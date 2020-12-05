@@ -10,55 +10,63 @@ import helper.Check;
 import java.util.Locale;
 import wonder.yahoo.ca.fabriccalculation.R;
 
-public class BtnCurtainCalculateController implements View.OnClickListener {
+public class BtnScreenCalculateController implements View.OnClickListener {
 
   private Context appContext;
 
-  public BtnCurtainCalculateController(Context context) {
+  public BtnScreenCalculateController(Context context) {
     appContext = context;
   }
 
   @Override
   public void onClick(View view) {
     EditText txtAmount = (EditText) ((AppCompatActivity) appContext)
-        .findViewById(R.id.txtCurtainAmount);
+        .findViewById(R.id.txtScreenAmount);
     EditText txtLength = (EditText) ((AppCompatActivity) appContext)
-        .findViewById(R.id.txtCurtainLength);
+        .findViewById(R.id.txtScreenLength);
     EditText txtWidth = (EditText) ((AppCompatActivity) appContext)
-        .findViewById(R.id.txtCurtainWidth);
+        .findViewById(R.id.txtScreenWidth);
     EditText txtFabricWidth = (EditText) ((AppCompatActivity) appContext)
-        .findViewById(R.id.txtCurtainFabricWidth);
+        .findViewById(R.id.txtScreenFabricWidth);
     TextView lblResult = (TextView) ((AppCompatActivity) appContext)
-        .findViewById(R.id.lblCurtainResult);
-
-    double multiple = getMultiple();
-    int cuts = getCuts();
+        .findViewById(R.id.lblScreenResult);
 
     boolean check = Check
-        .checkFields(new EditText[]{txtAmount, txtLength, txtWidth, txtFabricWidth}, multiple, cuts,
-            appContext);
+        .checkFields(new EditText[]{txtAmount, txtLength, txtWidth, txtFabricWidth}, getMultiple(),
+            getCuts(), appContext);
 
     if (check) {
       double amount = Double.parseDouble(txtAmount.getText().toString());
-      double length = Double.parseDouble(txtLength.getText().toString()) + 14;
+      double length = Double.parseDouble(txtLength.getText().toString()) + 18;
       double width = Double.parseDouble(txtWidth.getText().toString());
       double fabricWidth = Double.parseDouble(txtFabricWidth.getText().toString());
-      double fabricWidthAmount = 0;
-
+      int cuts = getCuts();
       if (cuts == 0) {
-        fabricWidthAmount = (width * multiple + 5) / fabricWidth;
-      } else if (cuts == 1)
-      {
-        fabricWidthAmount = (width * multiple + 10) / fabricWidth;
+        width = width * getMultiple() + 5;
+      } else if (cuts == 1) {
+        width = width * getMultiple() + 10;
       }
-      fabricWidthAmount = roundFabricWidthAmount(amount, fabricWidthAmount) * amount;
 
-      double yards = fabricWidthAmount * length / 36;
-      double meters = fabricWidthAmount * length / 39;
+      double yards = 0;
+      double meters = 0;
 
-      lblResult.setText(String
-          .format(Locale.getDefault(), "%1.1f布宽\n%1.1fy\n%1.1fm", fabricWidthAmount, yards,
-              meters));
+      if (width > fabricWidth && length <= fabricWidth) {
+        yards = width * amount / 36;
+        meters = width * amount / 39;
+      } else if (length > fabricWidth && width <= fabricWidth) {
+        yards = length * amount / 36;
+        meters = length * amount / 39;
+      } else {
+        double multiple = getMultiple();
+        double fabricWidthAmount = (width * multiple) / fabricWidth;
+        fabricWidthAmount = roundFabricWidthAmount(amount, fabricWidthAmount) * amount;
+
+        yards = fabricWidthAmount * length / 36;
+        meters = fabricWidthAmount * length / 39;
+      }
+
+      lblResult.setText(
+          String.format(Locale.getDefault(), "%1.1fy\n%1.1fm", yards, meters));
     }
   }
 
@@ -84,17 +92,17 @@ public class BtnCurtainCalculateController implements View.OnClickListener {
 
   private double getMultiple() {
     RadioButton radBtnOne = (RadioButton) ((AppCompatActivity) appContext)
-        .findViewById(R.id.radBtnCurtainOne);
+        .findViewById(R.id.radBtnScreenOne);
     RadioButton radBtnOneFive = (RadioButton) ((AppCompatActivity) appContext)
-        .findViewById(R.id.radBtnCurtainOneFive);
+        .findViewById(R.id.radBtnScreenOneFive);
     RadioButton radBtnTwo = (RadioButton) ((AppCompatActivity) appContext)
-        .findViewById(R.id.radBtnCurtainTwo);
+        .findViewById(R.id.radBtnScreenTwo);
     RadioButton radBtnTwoFive = (RadioButton) ((AppCompatActivity) appContext)
-        .findViewById(R.id.radBtnCurtainTwoFive);
+        .findViewById(R.id.radBtnScreenTwoFive);
     RadioButton radBtnThree = (RadioButton) ((AppCompatActivity) appContext)
-        .findViewById(R.id.radBtnCurtainThree);
+        .findViewById(R.id.radBtnScreenThree);
     RadioButton radBtnThreeFive = (RadioButton) ((AppCompatActivity) appContext)
-        .findViewById(R.id.radBtnCurtainThreeFive);
+        .findViewById(R.id.radBtnScreenThreeFive);
 
     if (radBtnOne.isChecked()) {
       return 1;
@@ -108,8 +116,9 @@ public class BtnCurtainCalculateController implements View.OnClickListener {
       return 3;
     } else if (radBtnThreeFive.isChecked()) {
       return 3.5;
+    } else {
+      return 0;
     }
-    return 0;
   }
 
   private int getCuts() {

@@ -1,12 +1,13 @@
 package controllers;
 
 import android.content.Context;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import conversion.Value;
+import helper.Check;
+import java.util.Locale;
 import wonder.yahoo.ca.fabriccalculation.R;
 
 public class BtnTableclothCalculateController implements View.OnClickListener {
@@ -32,45 +33,52 @@ public class BtnTableclothCalculateController implements View.OnClickListener {
     RadioButton radBtnHemmed = (RadioButton) ((AppCompatActivity) appContext)
         .findViewById(R.id.radBtnHemmed);
 
-    double amount = Value.getDouble(txtAmount.getText().toString());
-    double length = Value.getDouble(txtLength.getText().toString());
-    double width = Value.getDouble(txtWidth.getText().toString());
-    double fabricWidth = Value.getDouble(txtFabricWidth.getText().toString());
-    double yard = Value.getDouble(txtYard.getText().toString());
+    boolean check = Check
+        .checkFields(new EditText[]{txtAmount, txtLength, txtWidth, txtFabricWidth, txtYard},
+            getJoints() + 1, appContext);
 
-    double ratio = 0, leftover, pieces, meters, yards;
+    if (check) {
+      double amount = Double.parseDouble(txtAmount.getText().toString());
+      double length = Double.parseDouble(txtLength.getText().toString());
+      double width = Double.parseDouble(txtWidth.getText().toString());
+      double fabricWidth = Double.parseDouble(txtFabricWidth.getText().toString());
+      double yard = Double.parseDouble(txtYard.getText().toString());
 
-    if (radBtnHemmed.isChecked()) {
-      length = length + 1.5;
-      width = width + 1.5;
-    }
+      double ratio = 0, leftover, pieces, meters, yards;
 
-    if (joints == 0) {
-      ratio = 1 * amount;
-    } else if (joints == 1) {
-      leftover = width - fabricWidth;
-      pieces = Math.floor(fabricWidth / leftover);
-      ratio = (fabricWidth + (fabricWidth / pieces)) / fabricWidth * amount;
-    } else if (joints == 2) {
-      leftover = (width - fabricWidth) / 2;
-      pieces = Math.floor(fabricWidth / leftover);
-      ratio = (fabricWidth + (fabricWidth / pieces) * 2) / fabricWidth * amount;
-    }
-
-    if (yard == 0 && joints != -1) {
-      yards = Math.ceil(ratio) * length / 36;
-      meters = Math.ceil(ratio) * length / 39;
-
-      if (joints == 0 && width > fabricWidth) {
-        yards = 0;
-        meters = 0;
+      if (radBtnHemmed.isChecked()) {
+        length = length + 1.5;
+        width = width + 1.5;
       }
 
-      lblResult.setText(String.format("%s y \n%s m", Value.round(yards * 1.03), Value
-          .round(meters * 1.03)));
-    } else if (amount == 0 && joints != -1) {
-      amount = Math.floor(yard / 1.03 * 36 / length / ratio);
-      lblResult.setText(String.format("%s", amount));
+      if (joints == 0) {
+        ratio = 1 * amount;
+      } else if (joints == 1) {
+        leftover = width - fabricWidth;
+        pieces = Math.floor(fabricWidth / leftover);
+        ratio = (fabricWidth + (fabricWidth / pieces)) / fabricWidth * amount;
+      } else if (joints == 2) {
+        leftover = (width - fabricWidth) / 2;
+        pieces = Math.floor(fabricWidth / leftover);
+        ratio = (fabricWidth + (fabricWidth / pieces) * 2) / fabricWidth * amount;
+      }
+
+      if (yard == 0 && joints != -1) {
+        yards = Math.ceil(ratio) * length / 36;
+        meters = Math.ceil(ratio) * length / 39;
+
+        if (joints == 0 && width > fabricWidth) {
+          yards = 0;
+          meters = 0;
+        }
+
+        lblResult.setText(String
+            .format(Locale.getDefault(), "%1.1f y \n%1.1f m", yards * 1.03 + 0.1,
+                meters * 1.03 + 0.1));
+      } else if (amount == 0 && joints != -1) {
+        amount = Math.floor(yard / 1.03 * 36 / length / ratio);
+        lblResult.setText(String.format(Locale.getDefault(), "%d", (int) amount));
+      }
     }
   }
 

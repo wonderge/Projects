@@ -1,27 +1,27 @@
 package wonder.yahoo.ca.fabriccalculation;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RadioButton;
-import controllers.BtnCurtainCalculateController;
+import controllers.BtnScreenCalculateController;
 
-public class CurtainView extends AppCompatActivity {
+public class ScreenView extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.curtain_view);
+    setContentView(R.layout.screen_view);
 
-    final RadioButton radBtnOne = (RadioButton) findViewById(R.id.radBtnCurtainOne);
-    final RadioButton radBtnOneFive = (RadioButton) findViewById(R.id.radBtnCurtainOneFive);
-    final RadioButton radBtnTwo = (RadioButton) findViewById(R.id.radBtnCurtainTwo);
-    final RadioButton radBtnTwoFive = (RadioButton) findViewById(R.id.radBtnCurtainTwoFive);
-    final RadioButton radBtnThree = (RadioButton) findViewById(R.id.radBtnCurtainThree);
-    final RadioButton radBtnThreeFive = (RadioButton) findViewById(R.id.radBtnCurtainThreeFive);
+    final RadioButton radBtnOne = (RadioButton) findViewById(R.id.radBtnScreenOne);
+    final RadioButton radBtnOneFive = (RadioButton) findViewById(R.id.radBtnScreenOneFive);
+    final RadioButton radBtnTwo = (RadioButton) findViewById(R.id.radBtnScreenTwo);
+    final RadioButton radBtnTwoFive = (RadioButton) findViewById(R.id.radBtnScreenTwoFive);
+    final RadioButton radBtnThree = (RadioButton) findViewById(R.id.radBtnScreenThree);
+    final RadioButton radBtnThreeFive = (RadioButton) findViewById(R.id.radBtnScreenThreeFive);
 
     radBtnOne.setOnClickListener(new OnClickListener() {
       @Override
@@ -95,8 +95,8 @@ public class CurtainView extends AppCompatActivity {
       }
     });
 
-    Button btnCalculate = (Button) findViewById(R.id.btnCurtainCalculate);
-    btnCalculate.setOnClickListener(new BtnCurtainCalculateController(this));
+    Button btnCalculate = (Button) findViewById(R.id.btnScreenCalculate);
+    btnCalculate.setOnClickListener(new BtnScreenCalculateController(this));
   }
 
   @Override

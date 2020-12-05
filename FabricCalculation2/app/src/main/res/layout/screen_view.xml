@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:gravity="center"
   android:orientation="vertical"
-  tools:context=".CurtainView">
+  android:gravity="center"
+  tools:context=".ScreenView">
 
   <RadioGroup
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="horizontal">
       <RadioButton
-        android:id="@+id/radBtnCurtainOne"
+        android:id="@+id/radBtnScreenOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/oneMultiple"
         android:textSize="@dimen/fontSize" />
 
       <RadioButton
-        android:id="@+id/radBtnCurtainOneFive"
+        android:id="@+id/radBtnScreenOneFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onePointFiveMultiple"
         android:textSize="@dimen/fontSize" />
 
       <RadioButton
-        android:id="@+id/radBtnCurtainTwo"
+        android:id="@+id/radBtnScreenTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/twoMultiple"
@@ -44,21 +44,21 @@
       android:layout_height="wrap_content"
       android:orientation="horizontal">
       <RadioButton
-        android:id="@+id/radBtnCurtainTwoFive"
+        android:id="@+id/radBtnScreenTwoFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/twoPointFiveMultiple"
         android:textSize="@dimen/fontSize" />
 
       <RadioButton
-        android:id="@+id/radBtnCurtainThree"
+        android:id="@+id/radBtnScreenThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/threeMultiple"
         android:textSize="@dimen/fontSize" />
 
       <RadioButton
-        android:id="@+id/radBtnCurtainThreeFive"
+        android:id="@+id/radBtnScreenThreeFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/threePointFiveMultiple"
@@ -88,7 +88,7 @@
   </RadioGroup>
 
   <EditText
-    android:id="@+id/txtCurtainAmount"
+    android:id="@+id/txtScreenAmount"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
@@ -96,7 +96,7 @@
     android:hint="@string/amount" />
 
   <EditText
-    android:id="@+id/txtCurtainLength"
+    android:id="@+id/txtScreenLength"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
@@ -104,7 +104,7 @@
     android:hint="@string/length" />
 
   <EditText
-    android:id="@+id/txtCurtainWidth"
+    android:id="@+id/txtScreenWidth"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
@@ -112,7 +112,7 @@
     android:hint="@string/width" />
 
   <EditText
-    android:id="@+id/txtCurtainFabricWidth"
+    android:id="@+id/txtScreenFabricWidth"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
@@ -120,16 +120,16 @@
     android:hint="@string/fabricWidth" />
 
   <Button
-    android:id="@+id/btnCurtainCalculate"
+    android:id="@+id/btnScreenCalculate"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
     android:text="@string/calculate" />
 
   <TextView
-    android:id="@+id/lblCurtainResult"
+    android:id="@+id/lblScreenResult"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
-    android:textSize="@dimen/fontSize" />
+    android:textSize="@dimen/fontSize"/>
 </LinearLayout>

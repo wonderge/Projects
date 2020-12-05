@@ -130,7 +130,7 @@
     android:textSize="@dimen/fontSize" />
 
   <TextView
-    android:id="@+id/lblFlowerResult"
+    android:id="@+id/lblResult"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"

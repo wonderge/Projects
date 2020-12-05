@@ -1,11 +1,12 @@
 package controllers;
 
 import android.content.Context;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import conversion.Value;
+import helper.Check;
+import java.util.Locale;
 import wonder.yahoo.ca.fabriccalculation.R;
 
 public class BtnClipCalculateController implements View.OnClickListener {
@@ -27,22 +28,27 @@ public class BtnClipCalculateController implements View.OnClickListener {
     EditText txtWidth = (EditText) ((AppCompatActivity) appContext).findViewById(R.id.txtWidth);
     EditText txtFabricWidth = (EditText) ((AppCompatActivity) appContext)
         .findViewById(R.id.txtFabricWidth);
-    TextView lblResult = (TextView) ((AppCompatActivity) appContext)
-        .findViewById(R.id.lblClipResult);
+    TextView lblResult = (TextView) ((AppCompatActivity) appContext).findViewById(R.id.lblResult);
 
-    double amount = Value.getDouble(txtAmount.getText().toString());
-    double length = Value.getDouble(txtLength.getText().toString());
-    double width = Value.getDouble(txtWidth.getText().toString());
-    double fabricWidth = Value.getDouble(txtFabricWidth.getText().toString());
-    double skirtAmount = Value.getDouble(txtSkirtAmount.getText().toString());
-    double skirtLength = Value.getDouble(txtSkirtLength.getText().toString());
+    boolean check = Check.checkFields(
+        new EditText[]{txtSkirtAmount, txtSkirtLength, txtAmount, txtLength, txtWidth,
+            txtFabricWidth}, appContext);
 
-    double yards =
-        (amount * skirtLength * skirtAmount) / Math.floor(fabricWidth / length) * width / 36;
-    double meters =
-        (amount * skirtLength * skirtAmount) / Math.floor(fabricWidth / length) * width / 39;
+    if (check) {
+      double amount = Double.parseDouble(txtAmount.getText().toString());
+      double length = Double.parseDouble(txtLength.getText().toString());
+      double width = Double.parseDouble(txtWidth.getText().toString());
+      double fabricWidth = Double.parseDouble(txtFabricWidth.getText().toString());
+      double skirtAmount = Double.parseDouble(txtSkirtAmount.getText().toString());
+      double skirtLength = Double.parseDouble(txtSkirtLength.getText().toString());
 
-    lblResult.setText(String.format("%s y\n%s m", Value.round(yards * 1.03), Value
-        .round(meters * 1.03)));
+      double yards =
+          (amount * skirtLength * skirtAmount) / Math.floor(fabricWidth / length) * width / 36;
+      double meters =
+          (amount * skirtLength * skirtAmount) / Math.floor(fabricWidth / length) * width / 39;
+
+      lblResult.setText(
+          String.format(Locale.getDefault(), "%1.1f y\n%1.1f m", yards * 1.03, meters * 1.03));
+    }
   }
 }

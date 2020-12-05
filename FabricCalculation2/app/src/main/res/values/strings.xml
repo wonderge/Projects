@@ -8,10 +8,11 @@
   <string name="napkin">餐巾</string>
   <string name="flower">花</string>
   <string name="curtain">窗帘</string>
-  
+  <string name="screen">窗纱</string>
+
   <string name="marrow">码边</string>
   <string name="hemmed">卷边</string>
-  
+
   <string name="amount">数量</string>
   <string name="length">长</string>
   <string name="lengthInFeet">长 (feet)</string>
@@ -24,26 +25,29 @@
   <string name="skirtAmount">桌裙数量</string>
   <string name="skirtLength">桌裙长度</string>
   <string name="diameter">直径</string>
-  
+
   <string name="straightSide">平边</string>
   <string name="slantedSide">斜边</string>
-  
+
   <string name="dense">细褶</string>
   <string name="boxPleat">Box Pleat</string>
-  <string name="oneInch">1"</string>
-  <string name="twoInch">2"</string>
-  <string name="threeInch">3"</string>
+  <string name="oneInch">1\"</string>
+  <string name="twoInch">2\"</string>
+  <string name="threeInch">3\"</string>
   <string name="noJoint">No Joint</string>
   <string name="oneJoint">1 Joint</string>
   <string name="twoJoint">2 Joint</string>
 
   <string name="rectangleCloth">方形桌布</string>
   <string name="circleCloth">圆形桌布</string>
-  
-  <string name="OneMultiple">1倍</string>
-  <string name="OnePointFiveMultiple">1.5倍</string>
-  <string name="TwoMultiple">2倍</string>
-  <string name="TwoPointFiveMultiple">2.5倍</string>
-  <string name="ThreeMultiple">3倍</string>
-  <string name="ThreePointFiveMultiple">3.5倍</string>
+
+  <string name="oneMultiple">1倍</string>
+  <string name="onePointFiveMultiple">1.5倍</string>
+  <string name="twoMultiple">2倍</string>
+  <string name="twoPointFiveMultiple">2.5倍</string>
+  <string name="threeMultiple">3倍</string>
+  <string name="threePointFiveMultiple">3.5倍</string>
+
+  <string name="NoCut">不开</string>
+  <string name="OneCut">单开</string>
 </resources>
