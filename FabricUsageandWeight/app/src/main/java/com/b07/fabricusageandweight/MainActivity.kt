@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     btnCalculate.setOnClickListener {
-      val weight : Double = txtWeight.text.toString().toDouble()
+      val weight : Double = txtWeight.text.toString().toDouble() * 1000;
       val tubeWeight : Double = getTubeWeight()
       val fabricWeight : Double = getFabricWeight()
 
