@@ -1,0 +1,46 @@
+﻿<Window x:Class="FabricCalculationWPF.FabricWeightAmountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FabricCalculationWPF"
+        mc:Ignorable="d"
+        Title="FabricWeightAmountWindow" Height="450" Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="重量:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txtWeight" Width="160" />
+                <TextBlock Text="g" Width="25"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <RadioButton x:Name="radBtnSatin" Content="Satin" GroupName="fabric_type"/>
+                <RadioButton x:Name="radBtnPoplin" Content="Poplin" GroupName="fabric_type" Margin="10, 0, 0, 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <RadioButton x:Name="radBtnSmall" Content="小棍" GroupName="tube_type"/>
+                <RadioButton x:Name="radBtnBig" Content="大棍" GroupName="tube_type" Margin="10, 0, 0, 0"/>
+            </StackPanel>
+
+            <Button x:Name="btnCalculate" Content="计算" Margin="0, 40 ,0, 0" Click="btnCalculate_Click"/>
+            <TextBlock x:Name="lblResult" Margin="0, 40, 0, 0" TextAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15, 0, 0, 15">
+            <Button x:Name="btnClear" Width="50" Height="50">
+                <Image Source="Resources/trash.png" Stretch="Fill"/>
+            </Button>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 15, 15">
+            <Button x:Name="btnBack" Width="50" Height="50">
+                <Image Source="Resources/back.png" Stretch="Fill"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

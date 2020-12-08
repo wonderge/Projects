@@ -1,0 +1,74 @@
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\bin\Debug\FabricCalculationWPF.exe.config
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\bin\Debug\FabricCalculationWPF.exe
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\bin\Debug\FabricCalculationWPF.pdb
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.csprojAssemblyReference.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\App.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF_MarkupCompile.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF_MarkupCompile.lref
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.g.resources
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.Properties.Resources.resources
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.csproj.GenerateResource.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.csproj.CoreCompileInputs.cache
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.exe
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.pdb
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\StartWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\Resources.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\StartWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\App.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\NapkinWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\NapkinWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ChaircoverWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ClipWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricWeightAmountWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FlowerWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\RoundclothWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SashWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SkirtWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothTypeWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothWindow.g.cs
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ChaircoverWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ClipWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricWeightAmountWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FlowerWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\RoundclothWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SashWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SkirtWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothTypeWindow.baml
+C:\Users\Winston\Desktop\My Files\Homemade Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\bin\Debug\FabricCalculationWPF.exe.config
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\bin\Debug\FabricCalculationWPF.exe
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\bin\Debug\FabricCalculationWPF.pdb
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.csprojAssemblyReference.cache
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ChaircoverWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ClipWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricWeightAmountWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FlowerWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\NapkinWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\RoundclothWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SashWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SkirtWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\StartWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothTypeWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothWindow.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\App.g.cs
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF_MarkupCompile.cache
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF_MarkupCompile.lref
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\App.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ChaircoverWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\ClipWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricWeightAmountWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FlowerWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\NapkinWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\Resources.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\RoundclothWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SashWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\SkirtWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\StartWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothTypeWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\TableclothWindow.baml
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.g.resources
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.Properties.Resources.resources
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.csproj.GenerateResource.cache
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.csproj.CoreCompileInputs.cache
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.exe
+D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\FabricCalculationWPF.pdb

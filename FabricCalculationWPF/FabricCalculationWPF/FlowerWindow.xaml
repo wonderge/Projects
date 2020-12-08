@@ -1,0 +1,82 @@
+﻿<Window x:Class="FabricCalculationWPF.FlowerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FabricCalculationWPF"
+        mc:Ignorable="d"
+        Title="FlowerWindow" Height="600" Width="500">
+
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="80cm:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt80" Width="80" />
+                <TextBlock Text="pcs"/>
+                <TextBlock Text="70cm:" Margin="10, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt70" Width="80" />
+                <TextBlock Text="pcs"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="60cm:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt60" Width="80" />
+                <TextBlock Text="pcs"/>
+                <TextBlock Text="50cm:" Margin="10, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt50" Width="80" />
+                <TextBlock Text="pcs"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="40cm:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt40" Width="80" />
+                <TextBlock Text="pcs"/>
+                <TextBlock Text="30cm:" Margin="10, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt30" Width="80" />
+                <TextBlock Text="pcs"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="20cm:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt20" Width="80" />
+                <TextBlock Text="pcs"/>
+                <TextBlock Text="15cm:" Margin="10, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt15" Width="80" />
+                <TextBlock Text="pcs"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="10cm:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txt10" Width="80" />
+                <TextBlock Text="pcs"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="长:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txtLength" Width="160" />
+                <TextBlock Text="inch" Width="25"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="宽:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txtWidth" Width="160" />
+                <TextBlock Text="inch" Width="25"/>
+            </StackPanel>
+
+            <Button x:Name="btnCalculate" Content="计算" Margin="0, 40, 0, 0" Click="btnCalculate_Click"/>
+            <TextBlock x:Name="lblResult" Margin="0, 40, 0, 0" TextAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15, 0, 0, 15">
+            <Button x:Name="btnClear" Width="50" Height="50" Click="btnClear_Click">
+                <Image Source="Resources/trash.png" Stretch="Fill"/>
+            </Button>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 15, 15">
+            <Button x:Name="btnBack" Width="50" Height="50" Click="btnBack_Click">
+                <Image Source="Resources/back.png" Stretch="Fill"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
