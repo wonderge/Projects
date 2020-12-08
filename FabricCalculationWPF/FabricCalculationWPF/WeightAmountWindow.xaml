@@ -18,6 +18,12 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
+                <TextBlock Text="布量:" Margin="0, 0, 10, 0" Width="40"/>
+                <TextBox x:Name="txtFabricAmount" Width="160" />
+                <TextBlock Text="y" Width="25"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 40, 0, 0">
                 <RadioButton x:Name="radBtnSatin" Content="Satin" GroupName="fabric_type"/>
                 <RadioButton x:Name="radBtnPoplin" Content="Poplin" GroupName="fabric_type" Margin="10, 0, 0, 0"/>
             </StackPanel>
@@ -32,13 +38,13 @@
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="15, 0, 0, 15">
-            <Button x:Name="btnClear" Width="50" Height="50">
+            <Button x:Name="btnClear" Width="50" Height="50" Click="btnClear_Click">
                 <Image Source="Resources/trash.png" Stretch="Fill"/>
             </Button>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0, 0, 15, 15">
-            <Button x:Name="btnBack" Width="50" Height="50">
+            <Button x:Name="btnBack" Width="50" Height="50" Click="btnBack_Click">
                 <Image Source="Resources/back.png" Stretch="Fill"/>
             </Button>
         </StackPanel>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\
+D:\Projects\project\FabricCalculationWPF\FabricCalculationWPF\obj\Debug\
 FabricCalculationWPF
 none
 false
 DEBUG;TRACE
-D:\Projects\FabricCalculationWPF\FabricCalculationWPF\App.xaml
-12-711973226
+D:\Projects\project\FabricCalculationWPF\FabricCalculationWPF\App.xaml
+121026223885
 
-17-1667565049
+16697668743
 141183416626
-ChaircoverWindow.xaml;ClipWindow.xaml;FabricWeightAmountWindow.xaml;FlowerWindow.xaml;NapkinWindow.xaml;Resources.xaml;RoundclothWindow.xaml;SashWindow.xaml;SkirtWindow.xaml;StartWindow.xaml;TableclothTypeWindow.xaml;TableclothWindow.xaml;
+ChaircoverWindow.xaml;ClipWindow.xaml;WeightAmountWindow.xaml;FlowerWindow.xaml;NapkinWindow.xaml;Resources.xaml;RoundclothWindow.xaml;SashWindow.xaml;SkirtWindow.xaml;StartWindow.xaml;TableclothTypeWindow.xaml;TableclothWindow.xaml;
 
-False
+True
 

@@ -62,13 +62,12 @@
     <Compile Include="ClipWindow.xaml.cs">
       <DependentUpon>ClipWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FabricWeightAmountWindow.xaml.cs">
-      <DependentUpon>FabricWeightAmountWindow.xaml</DependentUpon>
+    <Compile Include="WeightAmountWindow.xaml.cs">
+      <DependentUpon>WeightAmountWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FlowerWindow.xaml.cs">
       <DependentUpon>FlowerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Number.cs" />
     <Compile Include="RoundclothWindow.xaml.cs">
       <DependentUpon>RoundclothWindow.xaml</DependentUpon>
     </Compile>
@@ -92,7 +91,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FabricWeightAmountWindow.xaml">
+    <Page Include="WeightAmountWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
