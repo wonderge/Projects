@@ -9,10 +9,8 @@
   <string name="flower">花</string>
   <string name="curtain">窗帘</string>
   <string name="screen">窗纱</string>
-
   <string name="marrow">码边</string>
   <string name="hemmed">卷边</string>
-
   <string name="amount">数量</string>
   <string name="length">长</string>
   <string name="lengthInFeet">长 (feet)</string>
@@ -25,10 +23,8 @@
   <string name="skirtAmount">桌裙数量</string>
   <string name="skirtLength">桌裙长度</string>
   <string name="diameter">直径</string>
-
   <string name="straightSide">平边</string>
   <string name="slantedSide">斜边</string>
-
   <string name="dense">细褶</string>
   <string name="boxPleat">Box Pleat</string>
   <string name="oneInch">1\"</string>
@@ -37,17 +33,30 @@
   <string name="noJoint">No Joint</string>
   <string name="oneJoint">1 Joint</string>
   <string name="twoJoint">2 Joint</string>
-
   <string name="rectangleCloth">方形桌布</string>
   <string name="circleCloth">圆形桌布</string>
-
   <string name="oneMultiple">1倍</string>
   <string name="onePointFiveMultiple">1.5倍</string>
   <string name="twoMultiple">2倍</string>
   <string name="twoPointFiveMultiple">2.5倍</string>
   <string name="threeMultiple">3倍</string>
   <string name="threePointFiveMultiple">3.5倍</string>
-
   <string name="NoCut">不开</string>
-  <string name="OneCut">单开</string>
+  <string name="OneCut">对开</string>
+  <string name="hole">塑扣窗帘</string>
+  <string name="weightAndAmount">布量</string>
+  <string name="tube">滚条布</string>
+  <string name="Weight">重量</string>
+  <string name="Satin">Satin</string>
+  <string name="Poplin">Poplin</string>
+  <string name="SmallTube">小棍</string>
+  <string name="BigTube">大棍</string>
+  <string name="Calculate">计算</string>
+  <string name="sideLength">边长</string>
+  <string name="circleToRectangle">圆改成方</string>
+  <string name="rectangleToNapkin">方改成餐巾</string>
+  <string name="circleToNapkin">圆改成餐巾</string>
+  <string name="napkinSideLength">餐巾边长</string>
+  <string name="clothLength">台布的长</string>
+  <string name="clothWidth">台布的宽</string>
 </resources>

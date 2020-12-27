@@ -23,6 +23,9 @@ public class StartScreenView extends AppCompatActivity {
     Button btnFlower = (Button) findViewById(R.id.btnFlower);
     Button btnCurtain = (Button) findViewById(R.id.btnCurtain);
     Button btnScreen = (Button) findViewById(R.id.btnScreen);
+    Button btnHole = (Button) findViewById(R.id.btnHole);
+    Button btnWeightAndAmount = (Button) findViewById(R.id.btnWeightAndAmount);
+    Button btnTube = (Button) findViewById(R.id.btnTube);
 
     btnNapkin.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -111,6 +114,36 @@ public class StartScreenView extends AppCompatActivity {
         Intent gotoScreen = new Intent(getApplicationContext(), ScreenView.class);
         finish();
         startActivity(gotoScreen);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+      }
+    });
+
+    btnHole.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent gotoHole = new Intent(getApplicationContext(), HoleView.class);
+        finish();
+        startActivity(gotoHole);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+      }
+    });
+
+    btnWeightAndAmount.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent gotoWeightAndAmount = new Intent(getApplicationContext(), WeightAndAmountView.class);
+        finish();
+        startActivity(gotoWeightAndAmount);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+      }
+    });
+
+    btnTube.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent gotoTube = new Intent(getApplicationContext(), ChoiceView.class);
+        finish();
+        startActivity(gotoTube);
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
       }
     });

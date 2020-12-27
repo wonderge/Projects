@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <dimen name="fontSize">18sp</dimen>
-  <dimen name="margin">50dp</dimen>
-  <dimen name="marginChoiceView">100dp</dimen>
-</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  tools:context=".CircleToNapkinView">
+
+  <EditText
+    android:id="@+id/txtCircleDiameter"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:hint="@string/diameter"
+    android:inputType="numberDecimal"/>
+
+  <EditText
+    android:id="@+id/txtNapkinLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:layout_marginTop="@dimen/margin2"
+    android:hint="@string/napkinSideLength"
+    android:inputType="numberDecimal"/>
+
+  <Button
+    android:id="@+id/btnCircleNapkinCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin2"
+    android:text="@string/calculate"/>
+
+  <TextView
+    android:id="@+id/lblCircleNapkinResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin2"/>
+
+</LinearLayout>
