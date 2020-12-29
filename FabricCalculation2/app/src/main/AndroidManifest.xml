@@ -9,10 +9,7 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".RectangleToNapkinView"></activity>
-    <activity android:name=".CircleToRectangleView" />
-    <activity android:name=".CircleToNapkinView" />
-    <activity android:name=".ChoiceView" />
+    <activity android:name=".TubeView"></activity>
     <activity android:name=".WeightAndAmountView" />
     <activity android:name=".HoleView" />
     <activity android:name=".ScreenView" />

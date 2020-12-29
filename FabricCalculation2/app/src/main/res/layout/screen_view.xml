@@ -131,5 +131,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
-    android:textSize="@dimen/fontSize"/>
+    android:textSize="@dimen/fontSize"
+    android:textColor="@color/black"/>
 </LinearLayout>

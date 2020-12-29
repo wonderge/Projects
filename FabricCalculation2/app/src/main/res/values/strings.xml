@@ -51,7 +51,6 @@
   <string name="Poplin">Poplin</string>
   <string name="SmallTube">小棍</string>
   <string name="BigTube">大棍</string>
-  <string name="Calculate">计算</string>
   <string name="sideLength">边长</string>
   <string name="circleToRectangle">圆改成方</string>
   <string name="rectangleToNapkin">方改成餐巾</string>
@@ -59,4 +58,5 @@
   <string name="napkinSideLength">餐巾边长</string>
   <string name="clothLength">台布的长</string>
   <string name="clothWidth">台布的宽</string>
+  <string name="imageSize">花纹尺寸</string>
 </resources>

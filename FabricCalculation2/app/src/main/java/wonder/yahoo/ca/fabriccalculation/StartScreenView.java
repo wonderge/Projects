@@ -141,7 +141,7 @@ public class StartScreenView extends AppCompatActivity {
     btnTube.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent gotoTube = new Intent(getApplicationContext(), ChoiceView.class);
+        Intent gotoTube = new Intent(getApplicationContext(), TubeView.class);
         finish();
         startActivity(gotoTube);
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);

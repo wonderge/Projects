@@ -1,7 +1,0 @@
-<resources>
-  <string name="app_name">滚条布计算</string>
-  <string name="length">长 (cm)</string>
-  <string name="width">宽 (cm)</string>
-  <string name="fabricWidth">布宽 (inch)</string>
-  <string name="calculate">计算</string>
-</resources>

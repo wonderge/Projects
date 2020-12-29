@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:gravity="center"
+  tools:context=".TubeView">
+
+  <EditText
+    android:id="@+id/txtTubeLength"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:autofillHints="@string/length"
+    android:ems="10"
+    android:hint="@string/length"
+    android:inputType="numberDecimal"
+    android:textSize="@dimen/fontSize" />
+
+  <EditText
+    android:id="@+id/txtTubeWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin2"
+    android:autofillHints="@string/width"
+    android:ems="10"
+    android:hint="@string/width"
+    android:inputType="numberDecimal"
+    android:textSize="@dimen/fontSize" />
+
+  <EditText
+    android:id="@+id/txtTubeFabricWidth"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin2"
+    android:autofillHints="@string/fabricWidth"
+    android:ems="10"
+    android:hint="@string/fabricWidth"
+    android:inputType="numberDecimal"
+    android:textSize="@dimen/fontSize" />
+
+  <Button
+    android:id="@+id/btnTubeCalculate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin2"
+    android:text="@string/calculate"
+    android:textSize="@dimen/fontSize" />
+
+  <TextView
+    android:id="@+id/lblTubeResult"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin2"
+    android:textSize="@dimen/fontSize"
+    android:textColor="@color/black"/>
+</LinearLayout>

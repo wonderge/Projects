@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">改台布</string>
+  <string name="diameter">直径</string>
+  <string name="sideLength">边长</string>
+  <string name="calculate">计算</string>
+  <string name="circleToRectangle">圆改成方</string>
+  <string name="rectangleToNapkin">方改成餐巾</string>
+  <string name="circleToNapkin">圆改成餐巾</string>
+  <string name="napkin">餐巾边长</string>
+  <string name="clothLength">台布的长</string>
+  <string name="clothWidth">台布的宽</string>
+</resources>
