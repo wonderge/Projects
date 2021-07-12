@@ -1,0 +1,3 @@
+[submodule "FabricCalculationReact"]
+	path = FabricCalculationReact
+	url = https://github.com/wonderge/FabricCalculationReact.git
