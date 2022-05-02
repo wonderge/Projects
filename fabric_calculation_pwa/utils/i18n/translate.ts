@@ -1,7 +1,13 @@
 import en from './en.json';
 import zh from './zh.json';
 
-const TRANSLATIONS: {[key: string]: any} = {
+type LangToken = {
+  [key: string]: {
+    [x:string]: string
+  }
+}
+
+const TRANSLATIONS: LangToken = {
   en,
   zh
 }
