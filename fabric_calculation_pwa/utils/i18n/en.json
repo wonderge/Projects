@@ -1,5 +1,42 @@
 {
   "Amount": "Amount",
+  "Fabric-Width": "Fabric Width",
+  "Fabric-Amount": "Fabric Amount",
   "Length": "Length",
-  "Width": "Width"
+  "Width": "Width",
+  "Hemmed": "Hemmed",
+  "Marrow": "Marrow",
+  "Result": "Result",
+  
+  "Napkin": "Napkin",
+
+  "Tablecloth": "Tablecloth",
+  "Joints": "Joints",
+  
+  "Roundcloth": "Round Tablecloth",
+  "Diameter": "Diameter",
+
+  "Clip": "Clip",
+  "Skirt-Amount": "Skirt Amount",
+  "Skirt-Length": "Skirt Length",
+
+  "Chaircover": "Chaircover",
+  "A": "A",
+  "B": "B",
+  "C": "C",
+  "D": "D",
+  "E": "E",
+  "F": "F",
+  "G": "G",
+  "H": "H",
+
+  "Sash": "Sash",
+  "Straight": "Straight ends",
+  "Slant": "Slant ends",
+
+  "Flower": "Flower",
+
+  "Curtain": "Curtain",
+
+  "Screen": "Curtain Screen"
 }

@@ -1,3 +1,29 @@
 {
-  "Amount": "数量"
+  "Amount": "数量",
+  "Fabric-Width": "布宽",
+  "Fabric-Amount": "布量",
+  "Length": "长",
+  "Width": "宽",
+  "Hemmed": "卷边",
+  "Marrow": "码边",
+  
+  "Napkin": "餐巾",
+
+  "Tablecloth": "桌布",
+  "Joints": "Joints",
+  
+  "Roundcloth": "圆形桌布",
+  "Diameter": "直径",
+
+  "Clip": "Clip",
+
+  "Chaircover": "椅套",
+
+  "Sash": "Sash",
+
+  "Flower": "花",
+
+  "Curtain": "窗帘",
+
+  "Screen": "窗纱"
 }
