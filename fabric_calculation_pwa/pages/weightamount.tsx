@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Container, Card, Form } from 'react-bootstrap'
+import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
 
 const WeightAmount: NextPage = () => {
   return (
@@ -21,10 +21,14 @@ const WeightAmount: NextPage = () => {
                 <Form.Label>Amount</Form.Label>
                 <Form.Control type="number" />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="amount">
+              <Form.Group className="mb-3" controlId="fabric-amount">
                 <Form.Label>Fabric Amount</Form.Label>
                 <Form.Control type="number" />
               </Form.Group>
+              <Row>
+                <Col className='text-center'><Button>Calculate</Button></Col>
+                <Col className='text-center'><Button>Clear</Button></Col>
+              </Row>
             </Form>
           </Card.Body>
         </Card>

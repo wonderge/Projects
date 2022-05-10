@@ -20,7 +20,7 @@ const Home: NextPage = () => {
             </Row>
             <Row className='mb-3'>
               <Col className='d-flex'><ButtonLink className='flex-grow-1' href='/curtain'>Curtain</ButtonLink></Col>
-              <Col className='d-flex'><ButtonLink className='flex-grow-1' href='/screen'>Screen</ButtonLink></Col>
+              <Col className='d-flex'><ButtonLink className='flex-grow-1' href='/gauze'>Gauze</ButtonLink></Col>
               <Col className='d-flex'><ButtonLink className='flex-grow-1' href='/flower'>Flower</ButtonLink></Col>
             </Row>
             <Row>
