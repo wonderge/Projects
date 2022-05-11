@@ -53,7 +53,7 @@ const Chaircover: NextPage = () => {
                 </Form.Group>
               </Row>
               <Row>
-                <Form.Group as={Col} className="mb-3" controlId="emount">
+                <Form.Group as={Col} className="mb-3" controlId="amount">
                   <Form.Label>Amount</Form.Label>
                   <Form.Control type="number" className='mr-3 pr-3' />
                 </Form.Group>

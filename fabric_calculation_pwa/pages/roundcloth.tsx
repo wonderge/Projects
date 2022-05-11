@@ -25,10 +25,11 @@ const Roundcloth: NextPage = () => {
                 <Form.Label>Fabric Amount</Form.Label>
                 <Form.Control type="number" />
               </Form.Group>
-              <Row>
+              <Row className='mb-3'>
                 <Col className='text-center'><Button>Calculate</Button></Col>
                 <Col className='text-center'><Button>Clear</Button></Col>
               </Row>
+              <div className='text-center'>Result</div>
             </Form>
           </Card.Body>
         </Card>
