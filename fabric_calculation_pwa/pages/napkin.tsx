@@ -8,14 +8,13 @@ const Napkin: NextPage = () => {
   const [width, setWidth] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [fabricAmount, setFabricAmount] = useState(0);
+  const [type, setType] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
 
   const calculate = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
-    const res = await fetch('/api/napkin');
-    const data = await res.json();
-    console.log(data);
+    const res = await fetch('/api/napkin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ test: 1 }) });
   }
 
   const clear = (): void => {
@@ -34,6 +33,10 @@ const Napkin: NextPage = () => {
           <Card.Body>
             <h2 className='text-center'>Napkin</h2>
             <Form onSubmit={calculate} ref={form}>
+              <div className='text-center'>
+                <Form.Check inline type='radio' label='Marrow' name='type' onClick={() => setType('Marrow')} />
+                <Form.Check inline type='radio' label='Hemmed' name='type' onClick={() => setType('Hemmed')} />
+              </div>
               <Form.Group className="mb-3" controlId="amount">
                 <Form.Label>Amount</Form.Label>
                 <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
