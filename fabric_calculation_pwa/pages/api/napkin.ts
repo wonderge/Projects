@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { isEnum, isNum } from '../../helpers/check';
 import { NapkinModel } from '../../models/NapkinModel';
 import { SideType } from './../../models/SideType';
-import withCheck from '../../middlewares/index';
+import preCheck from '../../middlewares/precheck';
 import type ResModel from '../../models/ResModel';
 
 const checkInputs = (req: NextApiRequest): boolean => {
@@ -38,7 +38,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
     amountResult = Math.floor(fabricAmount * 36 / args[1] * Math.floor(fabricWidth / args[0]) / 1.03);
   }
 
-  return res.json({ yards: yards.toFixed(1).toString(), meters: meters.toFixed(1).toString(), amount: amountResult.toFixed(1).toString() })
+  return res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1), amount: amountResult.toFixed(1) })
 }
 
-export default withCheck(handler, checkInputs)
+export default preCheck(handler, checkInputs)
