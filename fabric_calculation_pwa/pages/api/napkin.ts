@@ -1,29 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { isEnum, isNum } from '../../helpers/check';
-import { NapkinModel, NapkinType } from '../../models/NapkinModel';
+import { NapkinModel } from '../../models/NapkinModel';
+import { SideType } from './../../models/SideType';
+import withCheck from '../../middlewares/index';
 import type ResModel from '../../models/ResModel';
 
-const checkInputs = (req: NextApiRequest) => {
+const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, type, length, width, fabricWidth, fabricAmount }: any = req.body;
   const numCheck = isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth) && isNum(fabricAmount)
-  const typeCheck = isEnum(type, NapkinType)
+  const typeCheck = isEnum(type, SideType)
   return numCheck && typeCheck
 }
 
-export default (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: `Method ${req.method} not allowed` })
-  }
-
-  if (!checkInputs(req)) {
-    return res.status(400).json({ message: 'Invalid inputs' })
-  }
-
+const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   const { amount, type, fabricWidth, fabricAmount }: NapkinModel = req.body;
   let { length, width }: NapkinModel = req.body;
   let meters = 0, yards = 0, amountResult = 0;
 
-  if (type === NapkinType.Hemmed) {
+  if (type === SideType.Hemmed) {
     length += 1.5;
     width += 1.5;
   }
@@ -44,5 +38,7 @@ export default (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
     amountResult = Math.floor(fabricAmount * 36 / args[1] * Math.floor(fabricWidth / args[0]) / 1.03);
   }
 
-  res.json({ yards: yards.toFixed(1).toString(), meters: meters.toFixed(1).toString(), amount: amountResult.toFixed(1).toString() })
+  return res.json({ yards: yards.toFixed(1).toString(), meters: meters.toFixed(1).toString(), amount: amountResult.toFixed(1).toString() })
 }
+
+export default withCheck(handler, checkInputs)
