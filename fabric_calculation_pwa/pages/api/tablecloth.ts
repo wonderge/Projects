@@ -6,7 +6,7 @@ import ResModel from '../../models/ResModel';
 import preCheck from '../../middlewares/precheck';
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, type, length, width, joints, fabricWidth, fabricAmount }: any = req.body;
+  const { amount, type, length, width, joints, fabricWidth, fabricAmount } = req.body;
   const numCheck = isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth) && isNum(fabricAmount);
   const typeCheck = isEnum(type, SideType);
   const jointsCheck = joints === 0 || joints === 1 || joints === 2
