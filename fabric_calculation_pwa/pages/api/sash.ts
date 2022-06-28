@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import precheck from '../../middlewares/precheck'
+import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 import { SashModel } from './../../models/SashModel';
 import { EndType } from './../../models/SideType';
@@ -27,4 +27,4 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   return res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1) })
 }
 
-export default precheck(handler, checkInputs)
+export default withCheck(handler, checkInputs)

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ChaircoverModel } from './../../models/ChaircoverModel';
 import { isNum } from '../../helpers/check'
-import precheck from '../../middlewares/precheck'
+import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 
 const checkInputs = (req: NextApiRequest) => {
@@ -57,4 +57,4 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1) })
 }
 
-export default precheck(handler, checkInputs)
+export default withCheck(handler, checkInputs)

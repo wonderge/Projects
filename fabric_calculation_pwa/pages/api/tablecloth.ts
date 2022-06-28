@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { isNum, isEnum } from '../../helpers/check';
 import { SideType } from './../../models/SideType';
 import ResModel from '../../models/ResModel';
-import preCheck from '../../middlewares/precheck';
+import withCheck from '../../middlewares/withCheck';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, type, length, width, joints, fabricWidth, fabricAmount } = req.body;
@@ -52,4 +52,4 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   return res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1), amount: amountResult.toFixed(1) })
 }
 
-export default preCheck(handler, checkInputs)
+export default withCheck(handler, checkInputs)
