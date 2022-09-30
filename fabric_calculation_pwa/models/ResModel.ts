@@ -3,7 +3,9 @@ type ResModel = {
   meters?: string,
   amount?: string,
   message?: string,
-  required?: string
+  required?: string,
+  result?: string,
+  extras?: any
 }
 
 export default ResModel

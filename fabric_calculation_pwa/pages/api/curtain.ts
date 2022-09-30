@@ -1,5 +1,50 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { isNum } from '../../helpers/check'
+import withCheck from '../../middlewares/withCheck'
+import { CurtainModel } from '../../models/CurtainModel'
+import ResModel from '../../models/ResModel'
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  
+const checkInputs = (req: NextApiRequest): boolean => {
+  const { amount, length, width, fabricWidth, multiple, cuts } = req.body
+  return isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth) && isNum(multiple) && isNum(cuts)
 }
+
+const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
+  const { amount, length, width, fabricWidth, multiple, cuts }: CurtainModel = req.body
+
+  let fabricWidthAmount = 0
+
+  if (cuts === 0) {
+    fabricWidthAmount = (width * multiple + 5) / fabricWidth
+  } else if (cuts === 0) {
+    fabricWidthAmount = (width * multiple + 10) / fabricWidth
+  }
+  fabricWidthAmount = round(amount, fabricWidthAmount)
+
+  const yards = (fabricWidthAmount * (length + 14) / 36) * 1.03 + 0.1
+  const meters = (fabricWidthAmount * (length + 14) / 39) * 1.03 + 0.1
+
+  res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1) })
+}
+
+const round = (amount: number, fabricWidthAmount: number) => {
+  const floor = Math.floor(fabricWidthAmount)
+  const mid = floor + 0.5
+  const ceil = Math.ceil(fabricWidthAmount)
+
+  if (amount === 1) {
+    if (fabricWidthAmount <= floor + 0.2) {
+      return floor
+    } else if (fabricWidthAmount > floor + 0.2 && fabricWidthAmount <= mid) {
+      return mid
+    }
+  }
+
+  if (fabricWidthAmount <= mid) {
+    return mid
+  } else {
+    return ceil
+  }
+}
+
+export default withCheck(handler, checkInputs)
