@@ -1,6 +1,9 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router';
 import { FormEvent, useRef, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
+import ResModel from '../models/ResModel';
+import getLabels from '../utils/i18n/labels';
 
 const Napkin: NextPage = () => {
   const [amount, setAmount] = useState(0);
@@ -11,10 +14,19 @@ const Napkin: NextPage = () => {
   const [type, setType] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
+  const { Amount, Length, Width, Fabric_Width, Fabric_Amount } = getLabels(useRouter().locale);
 
-  const calculate = async (e: FormEvent): Promise<void> => {
+  const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const res = await fetch('/api/napkin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ test: 1 }) });
+    const res = await fetch('/api/napkin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type }) });
+    const data: ResModel = await res.json();
+    if (data.message !== undefined) {
+      setResult(data.message);
+    } else if (data.amount !== 0) {
+      setResult(`${data.amount}pcs`);
+    } else {
+      setResult(`${data.yards}y\n${data.meters}m`);
+    }
   }
 
   const clear = (): void => {
@@ -24,7 +36,7 @@ const Napkin: NextPage = () => {
     setWidth(0);
     setFabricWidth(0);
     setFabricAmount(0);
-  }
+  }  
 
   return (
     <Container className='d-flex align-items-center justify-content-center flex-column' style={{ minHeight: "calc(100vh - 56px)" }}>
@@ -38,30 +50,30 @@ const Napkin: NextPage = () => {
                 <Form.Check inline type='radio' label='Hemmed' name='type' onClick={() => setType('Hemmed')} />
               </div>
               <Form.Group className="mb-3" controlId="amount">
-                <Form.Label>Amount</Form.Label>
+                <Form.Label>{Amount}</Form.Label>
                 <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="length">
-                <Form.Label>Length</Form.Label>
+                <Form.Label>{Length}</Form.Label>
                 <Form.Control type="number" onChange={(e) => setLength(+e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="width">
-                <Form.Label>Width</Form.Label>
+                <Form.Label>{Width}</Form.Label>
                 <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="fabric-width">
-                <Form.Label>Fabric Width</Form.Label>
+                <Form.Label>{Fabric_Width}</Form.Label>
                 <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="fabric-amount">
-                <Form.Label>Fabric Amount</Form.Label>
+                <Form.Label>{Fabric_Amount}</Form.Label>
                 <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
               </Form.Group>
               <Row className='mb-3'>
                 <Col className='text-center'><Button type='submit'>Calculate</Button></Col>
                 <Col className='text-center'><Button onClick={clear}>Clear</Button></Col>
               </Row>
-              <div className='text-center'>{result}</div>
+              <div className='text-center' style={{ whiteSpace: "pre" }}>{result}</div>
             </Form>
           </Card.Body>
         </Card>

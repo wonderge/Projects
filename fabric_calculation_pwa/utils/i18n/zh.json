@@ -1,7 +1,7 @@
 {
   "Amount": "数量",
-  "Fabric-Width": "布宽",
-  "Fabric-Amount": "布量",
+  "Fabric_Width": "布宽",
+  "Fabric_Amount": "布量",
   "Length": "长",
   "Width": "宽",
   "Hemmed": "卷边",

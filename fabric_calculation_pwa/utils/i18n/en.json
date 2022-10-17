@@ -1,7 +1,7 @@
 {
   "Amount": "Amount",
-  "Fabric-Width": "Fabric Width",
-  "Fabric-Amount": "Fabric Amount",
+  "Fabric_Width": "Fabric Width",
+  "Fabric_Amount": "Fabric Amount",
   "Length": "Length",
   "Width": "Width",
   "Hemmed": "Hemmed",
