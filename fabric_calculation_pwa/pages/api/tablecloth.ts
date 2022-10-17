@@ -1,6 +1,6 @@
 import { TableclothModel } from './../../models/TableclothModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { isNum, isEnum } from '../../helpers/check';
+import { isNum, isEnum } from '../../utils/helpers/check';
 import { SideType } from './../../models/SideType';
 import ResModel from '../../models/ResModel';
 import withCheck from '../../middlewares/withCheck';

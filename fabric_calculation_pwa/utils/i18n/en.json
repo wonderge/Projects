@@ -1,4 +1,7 @@
 {
+  "Calculate": "Calculate",
+  "Clear": "Clear",
+
   "Amount": "Amount",
   "Fabric_Width": "Fabric Width",
   "Fabric_Amount": "Fabric Amount",
@@ -11,7 +14,9 @@
   "Napkin": "Napkin",
 
   "Tablecloth": "Tablecloth",
-  "Joints": "Joints",
+  "No_Joints": "No Joints",
+  "One_Joint": "One Joint",
+  "Two_Joints": "Two Joints",
   
   "Roundcloth": "Round Tablecloth",
   "Diameter": "Diameter",

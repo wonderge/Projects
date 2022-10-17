@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { isNum } from '../../helpers/check'
+import { isNum } from '../../utils/helpers/check'
 import withCheck from '../../middlewares/withCheck'
 import { CurtainModel } from '../../models/CurtainModel'
 import ResModel from '../../models/ResModel'

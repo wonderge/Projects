@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ChaircoverModel } from './../../models/ChaircoverModel';
-import { isNum } from '../../helpers/check'
+import { isNum } from '../../utils/helpers/check'
 import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 

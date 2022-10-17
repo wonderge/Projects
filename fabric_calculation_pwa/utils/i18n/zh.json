@@ -1,4 +1,7 @@
 {
+  "Calculate": "计算",
+  "Clear": "清除",
+
   "Amount": "数量",
   "Fabric_Width": "布宽",
   "Fabric_Amount": "布量",
@@ -10,7 +13,9 @@
   "Napkin": "餐巾",
 
   "Tablecloth": "桌布",
-  "Joints": "Joints",
+  "No_Joints": "No Joints",
+  "One_Joint": "One Joint",
+  "Two_Joints": "Two Joints",
   
   "Roundcloth": "圆形桌布",
   "Diameter": "直径",

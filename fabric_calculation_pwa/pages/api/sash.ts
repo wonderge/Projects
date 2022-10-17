@@ -3,7 +3,7 @@ import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 import { SashModel } from './../../models/SashModel';
 import { EndType } from './../../models/SideType';
-import { isNum, isEnum } from './../../helpers/check';
+import { isNum, isEnum } from '../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, length, width, fabricWidth, type } = req.body

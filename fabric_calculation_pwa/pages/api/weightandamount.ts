@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { isEnum, isNum } from '../../helpers/check';
+import { isEnum, isNum } from '../../utils/helpers/check';
 import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel';
 import { FabricType, TubeType, WeightAmountModel } from '../../models/WeightAmountModel';

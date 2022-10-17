@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { FormEvent, useRef, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import ResModel from '../models/ResModel';
+import { SideType } from '../models/SideType';
 import getLabels from '../utils/i18n/labels';
 
 const Napkin: NextPage = () => {
@@ -14,7 +15,7 @@ const Napkin: NextPage = () => {
   const [type, setType] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Width, Fabric_Width, Fabric_Amount } = getLabels(useRouter().locale);
+  const { Amount, Length, Width, Fabric_Width, Fabric_Amount, Hemmed, Marrow, Napkin, Calculate, Clear } = getLabels(useRouter().locale);
 
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
@@ -43,11 +44,11 @@ const Napkin: NextPage = () => {
       <div className="w-100" style={{ maxWidth: '400px' }}>
         <Card className='p-1'>
           <Card.Body>
-            <h2 className='text-center'>Napkin</h2>
+            <h2 className='text-center'>{Napkin}</h2>
             <Form onSubmit={calculate} ref={form}>
               <div className='text-center'>
-                <Form.Check inline type='radio' label='Marrow' name='type' onClick={() => setType('Marrow')} />
-                <Form.Check inline type='radio' label='Hemmed' name='type' onClick={() => setType('Hemmed')} />
+                <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Marrow)} />
+                <Form.Check inline type='radio' label={Hemmed} name='type' onClick={() => setType(SideType.Hemmed)} />
               </div>
               <Form.Group className="mb-3" controlId="amount">
                 <Form.Label>{Amount}</Form.Label>
@@ -70,8 +71,8 @@ const Napkin: NextPage = () => {
                 <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
               </Form.Group>
               <Row className='mb-3'>
-                <Col className='text-center'><Button type='submit'>Calculate</Button></Col>
-                <Col className='text-center'><Button onClick={clear}>Clear</Button></Col>
+                <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
+                <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
               </Row>
               <div className='text-center' style={{ whiteSpace: "pre" }}>{result}</div>
             </Form>

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { isEnum, isNum } from '../../helpers/check';
+import { isEnum, isNum } from '../../utils/helpers/check';
 import { NapkinModel } from '../../models/NapkinModel';
 import { SideType } from './../../models/SideType';
 import withCheck from '../../middlewares/withCheck';
