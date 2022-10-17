@@ -1,10 +1,10 @@
 type ResModel = {
-  yards?: string,
-  meters?: string,
-  amount?: string,
+  yards?: number,
+  meters?: number,
+  amount?: number,
   message?: string,
-  required?: string,
-  result?: string,
+  required?: number,
+  result?: number,
   extras?: any
 }
 
