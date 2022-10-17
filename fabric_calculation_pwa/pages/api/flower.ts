@@ -32,7 +32,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   }
   required = required * 1.03 + 0.1
 
-  res.json({ required: required.toFixed(1) })
+  res.json({ required: Number(required.toFixed(1)) })
 }
 
 export default withCheck(handler, checkInputs)

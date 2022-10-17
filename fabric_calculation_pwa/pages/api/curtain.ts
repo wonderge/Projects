@@ -24,7 +24,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   const yards = (fabricWidthAmount * (length + 14) / 36) * 1.03 + 0.1
   const meters = (fabricWidthAmount * (length + 14) / 39) * 1.03 + 0.1
 
-  res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1) })
+  res.json({ yards: Number(yards.toFixed(1)), meters: Number(meters.toFixed(1)) })
 }
 
 const round = (amount: number, fabricWidthAmount: number) => {

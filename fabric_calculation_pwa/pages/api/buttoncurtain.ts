@@ -52,7 +52,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
     }
     side++;
   });
-  res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1), extras: extras })
+  res.json({ yards: Number(yards.toFixed(1)), meters: Number(meters.toFixed(1)), extras: extras })
 }
 
 export default withCheck(handler, checkInputs)

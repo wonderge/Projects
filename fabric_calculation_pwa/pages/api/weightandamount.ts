@@ -16,7 +16,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   const weightInGrams = weight * 1000
 
   const result = (weight - tubeWeight) / fabricWeight
-  res.json({ result: result.toFixed(1) })
+  res.json({ result: Number(result.toFixed(1)) })
 }
 
 export default withCheck(handler, checkInputs)

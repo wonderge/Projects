@@ -54,7 +54,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   const meters = (total / 39) * 1.03 + 0.1
   const yards = (total / 36) * 1.03 + 0.1
 
-  res.json({ yards: yards.toFixed(1), meters: meters.toFixed(1) })
+  res.json({ yards: Number(yards.toFixed(1)), meters: Number(meters.toFixed(1)) })
 }
 
 export default withCheck(handler, checkInputs)
