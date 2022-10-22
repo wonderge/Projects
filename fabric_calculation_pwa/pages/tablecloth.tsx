@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useRef, FormEvent, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { SideType } from '../models/SideType'
+import fetchApi from '../utils/helpers/fetchApi'
 import getLabels from '../utils/i18n/labels'
 
 const Tablecloth: NextPage = () => {
@@ -19,15 +20,13 @@ const Tablecloth: NextPage = () => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const body = JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type, joints });
-    const res = await fetch('/api/tablecloth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
-    const data = await res.json();
-    if (data.message !== undefined) {
-      setResult(data.message);
-    } else if (data.amount !== 0) {
-      setResult(`${data.amount}pcs`);
+    const res = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints });
+    if (res.message !== undefined) {
+      setResult(res.message);
+    } else if (res.amount !== 0) {
+      setResult(`${res.amount}pcs`);
     } else {
-      setResult(`${data.yards}y\n${data.meters}m`);
+      setResult(`${res.yards}y\n${res.meters}m`);
     }
   }
 

@@ -4,6 +4,7 @@ import { FormEvent, useRef, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import ResModel from '../models/ResModel';
 import { SideType } from '../models/SideType';
+import fetchApi from '../utils/helpers/fetchApi';
 import getLabels from '../utils/i18n/labels';
 
 const Napkin: NextPage = () => {
@@ -19,15 +20,13 @@ const Napkin: NextPage = () => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const body = JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type });
-    const res = await fetch('/api/napkin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
-    const data: ResModel = await res.json();
-    if (data.message !== undefined) {
-      setResult(data.message);
-    } else if (data.amount !== 0) {
-      setResult(`${data.amount}pcs`);
+    const res = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type });
+    if (res.message !== undefined) {
+      setResult(res.message);
+    } else if (res.amount !== 0) {
+      setResult(`${res.amount}pcs`);
     } else {
-      setResult(`${data.yards}y\n${data.meters}m`);
+      setResult(`${res.yards}y\n${res.meters}m`);
     }
   }
 
