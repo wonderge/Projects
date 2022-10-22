@@ -19,7 +19,8 @@ const Tablecloth: NextPage = () => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetch('/api/tablecloth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type, joints }) });
+    const body = JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type, joints });
+    const res = await fetch('/api/tablecloth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
     const data = await res.json();
     if (data.message !== undefined) {
       setResult(data.message);

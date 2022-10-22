@@ -19,7 +19,8 @@ const Napkin: NextPage = () => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const res = await fetch('/api/napkin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type }) });
+    const body = JSON.stringify({ amount, length, width, fabricWidth, fabricAmount, type });
+    const res = await fetch('/api/napkin', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
     const data: ResModel = await res.json();
     if (data.message !== undefined) {
       setResult(data.message);
