@@ -14,7 +14,7 @@ const Sash: NextPage = () => {
   const [type, setType] = useState('');
   const [result, setResult] = useState("");
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Width, Fabric_Width, Calculate, Clear, Straight, Slant } = getLabels(useRouter().locale);
+  const { Amount, Length, Width, Fabric_Width, Calculate, Clear, Straight, Slant, Sash } = getLabels(useRouter().locale);
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ const Sash: NextPage = () => {
       <div className="w-100" style={{ maxWidth: '400px' }}>
         <Card className='p-1'>
           <Card.Body>
-            <h2 className='text-center'>Sash</h2>
+            <h2 className='text-center'>{Sash}</h2>
             <Form onSubmit={calculate} ref={form}>
               <div className='text-center'>
                 <Form.Check inline type='radio' label={Straight} name='type' onClick={(e) => setType(EndType.Straight)} />
