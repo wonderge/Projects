@@ -20,6 +20,7 @@
   
   "Roundcloth": "Round Tablecloth",
   "Diameter": "Diameter",
+  "Sidelength": "Sidepiece length",
 
   "Clip": "Clip",
   "Skirt_Amount": "Skirt Amount",
@@ -42,6 +43,19 @@
   "Flower": "Flower",
 
   "Curtain": "Curtain",
+  "No_Cut": "No cut",
+  "Cut": "Cut",
+  "One": "1x Pleat",
+  "OneFive": "1.5x Pleat",
+  "Two": "2x Pleat",
+  "TwoFive": "2.5x Pleat",
+  "Three": "3x Pleat",
+  "ThreeFive": "3.5x Pleat",
 
-  "Screen": "Curtain Screen"
+  "Screen": "Curtain Screen",
+
+  "Weight_And_Amount": "Weight and Amount",
+  "Weight": "Weight",
+  "Small_Tube": "Small tube",
+  "Big_Tube": "Big tube"
 }
