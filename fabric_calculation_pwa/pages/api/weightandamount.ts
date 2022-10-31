@@ -15,7 +15,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   const fabricWeight = fabric === FabricType.Satin ? 210 : 250
   const weightInGrams = weight * 1000
 
-  const result = (weight - tubeWeight) / fabricWeight
+  const result = (weightInGrams - tubeWeight) / fabricWeight
   res.json({ result: Number(result.toFixed(1)) })
 }
 
