@@ -16,7 +16,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
 
   if (cuts === 0) {
     fabricWidthAmount = (width * multiple + 5) / fabricWidth
-  } else if (cuts === 0) {
+  } else if (cuts === 1) {
     fabricWidthAmount = (width * multiple + 10) / fabricWidth
   }
   fabricWidthAmount = round(amount, fabricWidthAmount)
