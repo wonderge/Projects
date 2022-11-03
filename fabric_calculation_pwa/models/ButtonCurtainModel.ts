@@ -1,6 +1,6 @@
 export type ButtonCurtainModel = {
   amount: number,
-  curtainHeight: number,
-  imageSize: number,
+  height: number,
+  patternSize: number,
   fabricWidth: number
 }

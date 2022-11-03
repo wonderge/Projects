@@ -5,8 +5,8 @@ import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel';
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, curtainHeight, imageSize, fabricWidth } = req.body;
-  return isNum(amount) && isNum(curtainHeight) && isNum(imageSize) && isNum(fabricWidth);
+  const { amount, height, patternSize, fabricWidth } = req.body;
+  return isNum(amount) && isNum(height) && isNum(patternSize) && isNum(fabricWidth);
 }
 
 const getCircleSize = (side: number, length: number, start: number, end: number): number => {
@@ -24,13 +24,13 @@ const getCircleSize = (side: number, length: number, start: number, end: number)
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
-  const { amount, imageSize, fabricWidth }: ButtonCurtainModel = req.body;
-  let { curtainHeight }: ButtonCurtainModel = req.body;
-  if (imageSize != 0) {
-    curtainHeight = imageSize * Math.ceil(curtainHeight / imageSize)
+  const { amount, patternSize, fabricWidth }: ButtonCurtainModel = req.body;
+  let { height }: ButtonCurtainModel = req.body;
+  if (patternSize != 0) {
+    height = patternSize * Math.ceil(height / patternSize)
   }
 
-  let height = curtainHeight + 14;
+  height += 14;
   let yards = (height * amount / 36) * 1.03 + 0.1;
   let meters = (height * amount / 39) * 1.03 + 0.1;
 
