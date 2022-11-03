@@ -5,19 +5,19 @@ import { CurtainModel } from '../../models/CurtainModel'
 import ResModel from '../../models/ResModel'
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, length, width, fabricWidth, multiple, cuts } = req.body
-  return isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth) && isNum(multiple) && isNum(cuts)
+  const { amount, length, height, fabricWidth, multiple, cuts } = req.body
+  return isNum(amount) && isNum(length) && isNum(height) && isNum(fabricWidth) && isNum(multiple) && isNum(cuts)
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
-  const { amount, length, width, fabricWidth, multiple, cuts }: CurtainModel = req.body
+  const { amount, length, height, fabricWidth, multiple, cuts }: CurtainModel = req.body
 
   let fabricWidthAmount = 0
 
   if (cuts === 0) {
-    fabricWidthAmount = (width * multiple + 5) / fabricWidth
+    fabricWidthAmount = (height * multiple + 5) / fabricWidth
   } else if (cuts === 0) {
-    fabricWidthAmount = (width * multiple + 10) / fabricWidth
+    fabricWidthAmount = (height * multiple + 10) / fabricWidth
   }
   fabricWidthAmount = round(amount, fabricWidthAmount)
 

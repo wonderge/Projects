@@ -1,7 +1,7 @@
 export type CurtainModel = {
   amount: number,
   length: number,
-  width: number,
+  height: number,
   fabricWidth: number,
   multiple: number,
   cuts: number

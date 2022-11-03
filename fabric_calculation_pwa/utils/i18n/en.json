@@ -51,8 +51,15 @@
   "TwoFive": "2.5x Pleat",
   "Three": "3x Pleat",
   "ThreeFive": "3.5x Pleat",
+  "Height": "Height",
 
-  "Screen": "Curtain Screen",
+  "Gauze": "Gauze",
+
+  "Button_Curtain": "Button Curtain",
+  "Pattern_Size": "Pattern Size",
+  "SE_Spacing": "Start End Spacing",
+  "Spacing": "Spacing",
+  "Button_Count": "Button Count",
 
   "Weight_And_Amount": "Weight and Amount",
   "Weight": "Weight",
