@@ -8,17 +8,17 @@ import getLabels from '../utils/i18n/labels';
 const Curtain: NextPage = () => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
-  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [cuts, setCuts] = useState(0);
   const [multiple, setMultiple] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Width, Fabric_Width, Calculate, Clear, Curtain, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive  } = getLabels(useRouter().locale);
+  const { Amount, Length, Height, Fabric_Width, Calculate, Clear, Curtain, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive  } = getLabels(useRouter().locale);
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/curtain', { amount, length, width, fabricWidth, cuts, multiple });
+    const res = await fetchApi('/api/curtain', { amount, length, height, fabricWidth, cuts, multiple });
     if (res.message) {
       setResult(res.message);
     } else {
@@ -30,7 +30,7 @@ const Curtain: NextPage = () => {
     form.current!.reset();
     setAmount(0);
     setLength(0);
-    setWidth(0);
+    setHeight(0);
     setFabricWidth(0);
     setCuts(0);
     setMultiple(0);
@@ -65,8 +65,8 @@ const Curtain: NextPage = () => {
                 <Form.Control type="number" onChange={(e) => setLength(+e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="width">
-                <Form.Label>{Width}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)} />
+                <Form.Label>{Height}</Form.Label>
+                <Form.Control type="number" onChange={(e) => setHeight(+e.target.value)} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="fabric-width">
                 <Form.Label>{Fabric_Width}</Form.Label>
