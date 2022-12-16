@@ -5,10 +5,10 @@ import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, length, width } = req.body
-  const arrayCheck = Array.isArray(amount) && amount.every(e => isNum(e))
-  const numCheck = isNum(length) && isNum(width)
-  return arrayCheck && numCheck
+  const { amount, length, width } = req.body;
+  const arrayCheck = Array.isArray(amount);
+  const numCheck = isNum(...amount, length, width);
+  return arrayCheck && numCheck;
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {

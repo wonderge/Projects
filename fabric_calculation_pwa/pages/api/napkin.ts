@@ -1,3 +1,4 @@
+import { isNotZero } from './../../utils/helpers/check';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { isEnum, isNum } from '../../utils/helpers/check';
 import { NapkinModel } from '../../models/NapkinModel';
@@ -7,9 +8,10 @@ import type ResModel from '../../models/ResModel';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, type, length, width, fabricWidth, fabricAmount }: any = req.body;
-  const numCheck = isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth) && isNum(fabricAmount)
-  const typeCheck = isEnum(type, SideType)
-  return numCheck && typeCheck
+  const numCheck = isNum(amount, length, width, fabricWidth, fabricAmount);
+  const nonZeroCheck = isNotZero(amount, length, width, fabricWidth) || isNotZero(length, width, fabricWidth, fabricAmount);
+  const typeCheck = isEnum(type, SideType);
+  return numCheck && typeCheck && nonZeroCheck;
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {

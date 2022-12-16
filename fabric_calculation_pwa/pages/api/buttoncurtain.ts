@@ -1,3 +1,4 @@
+import { isNotZero } from './../../utils/helpers/check';
 import { ButtonCurtainModel } from './../../models/ButtonCurtainModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { isNum } from '../../utils/helpers/check';
@@ -6,7 +7,7 @@ import ResModel from '../../models/ResModel';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, height, patternSize, fabricWidth } = req.body;
-  return isNum(amount) && isNum(height) && isNum(patternSize) && isNum(fabricWidth);
+  return isNum(amount, height, patternSize, fabricWidth) && isNotZero(amount, height, patternSize, fabricWidth);
 }
 
 const getCircleSize = (side: number, length: number, start: number, end: number): number => {
