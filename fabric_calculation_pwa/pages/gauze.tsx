@@ -1,11 +1,10 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router';
 import { useState, useRef, FormEvent } from 'react';
 import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp';
 import fetchApi from '../utils/helpers/fetchApi';
-import getLabels from '../utils/i18n/labels';
 
-const Gauze: NextPage = () => {
+const Gauze: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
   const [height, setHeight] = useState(0);
@@ -14,11 +13,11 @@ const Gauze: NextPage = () => {
   const [multiple, setMultiple] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Height, Fabric_Width, Calculate, Clear, Gauze, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive  } = getLabels(useRouter().locale);
+  const { Amount, Length, Height, Fabric_Width, Calculate, Clear, Gauze, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive  } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/gauze', { amount, length, width: height, fabricWidth, cuts, multiple });
+    const res = await fetchApi('/api/gauze', { amount, length, width: height, fabricWidth, cuts, multiple }, locale);
     if (res.message) {
       setResult(res.message);
     } else {

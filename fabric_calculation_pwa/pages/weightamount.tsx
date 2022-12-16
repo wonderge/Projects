@@ -1,22 +1,21 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router';
 import { FormEvent, useRef, useState } from 'react'
 import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp';
 import { FabricType, TubeType } from '../models/WeightAmountModel';
 import fetchApi from '../utils/helpers/fetchApi';
-import getLabels from '../utils/i18n/labels';
 
-const WeightAmount: NextPage = () => {
+const WeightAmount: NextPage<PageProp> = ({ locale, labels }) => {
   const [weight, setWeight] = useState(0);
   const [tube, setTube] = useState('');
   const [fabric, setFabric] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Weight, Calculate, Clear, Small_Tube, Big_Tube, Weight_And_Amount } = getLabels(useRouter().locale);
+  const { Weight, Calculate, Clear, Small_Tube, Big_Tube, Weight_And_Amount } = labels;
   
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/weightandamount',  { weight, tube, fabric });
+    const res = await fetchApi('/api/weightandamount',  { weight, tube, fabric }, locale);
     if (res.message) {
       setResult(res.message);
     } else {

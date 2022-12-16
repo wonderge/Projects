@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
 import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp'
 import { EndType } from '../models/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
-import getLabels from '../utils/i18n/labels'
 
-const Sash: NextPage = () => {
+const Sash: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
@@ -14,11 +13,11 @@ const Sash: NextPage = () => {
   const [type, setType] = useState('');
   const [result, setResult] = useState("");
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Width, Fabric_Width, Calculate, Clear, Straight, Slant, Sash } = getLabels(useRouter().locale);
+  const { Amount, Length, Width, Fabric_Width, Calculate, Clear, Straight, Slant, Sash } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/sash', { amount, length, width, fabricWidth, type });
+    const res = await fetchApi('/api/sash', { amount, length, width, fabricWidth, type }, locale);
     if (res.message) {
       setResult(res.message);
     } else {

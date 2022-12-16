@@ -1,22 +1,21 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router';
 import { FormEvent, useRef, useState } from 'react';
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp';
 import fetchApi from '../utils/helpers/fetchApi';
-import getLabels from '../utils/i18n/labels';
 
-const Roundcloth: NextPage = () => {
+const Roundcloth: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [diameter, setDiameter] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [fabricAmount, setFabricAmount] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength } = getLabels(useRouter().locale);
+  const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount });
+    const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount }, locale);
     if (res.message) {
       setResult(res.message);
     } else {

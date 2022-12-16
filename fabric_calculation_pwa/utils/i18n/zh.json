@@ -53,5 +53,7 @@
   "Weight_And_Amount": "布量和重量",
   "Weight": "重量",
   "Small_Tube": "小管",
-  "Big_Tube": "大管"
+  "Big_Tube": "大管",
+
+  "Invalid_Inputs": "请输入所有选项"
 }

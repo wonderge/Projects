@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { useRef, FormEvent, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp'
 import { SideType } from '../models/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
-import getLabels from '../utils/i18n/labels'
 
-const Tablecloth: NextPage = () => {
+const Tablecloth: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
@@ -16,11 +15,11 @@ const Tablecloth: NextPage = () => {
   const [type, setType] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null)
-  const { Amount, Length, Width, Fabric_Width, Fabric_Amount, Marrow, Hemmed, Tablecloth, No_Joints, One_Joint, Two_Joints, Calculate, Clear } = getLabels(useRouter().locale);
+  const { Amount, Length, Width, Fabric_Width, Fabric_Amount, Marrow, Hemmed, Tablecloth, No_Joints, One_Joint, Two_Joints, Calculate, Clear } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints });
+    const res = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints }, locale);
     if (res.message !== undefined) {
       setResult(res.message);
     } else if (res.amount !== 0) {

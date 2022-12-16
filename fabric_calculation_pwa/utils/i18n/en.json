@@ -27,14 +27,6 @@
   "Skirt_Length": "Skirt Length",
 
   "Chaircover": "Chaircover",
-  "A": "A",
-  "B": "B",
-  "C": "C",
-  "D": "D",
-  "E": "E",
-  "F": "F",
-  "G": "G",
-  "H": "H",
 
   "Sash": "Sash",
   "Straight": "Straight ends",
@@ -64,5 +56,7 @@
   "Weight_And_Amount": "Weight and Amount",
   "Weight": "Weight",
   "Small_Tube": "Small tube",
-  "Big_Tube": "Big tube"
+  "Big_Tube": "Big tube",
+
+  "Invalid_Inputs": "Not enough fields filled out"
 }

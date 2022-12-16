@@ -1,11 +1,10 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
 import { Container, Card, Form, Image, Row, Col, Button } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp'
 import fetchApi from '../utils/helpers/fetchApi'
-import getLabels from '../utils/i18n/labels'
 
-const Chaircover: NextPage = () => {
+const Chaircover: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [a, setA] = useState(0);
@@ -18,11 +17,11 @@ const Chaircover: NextPage = () => {
   const [h, setH] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null)
-  const { Amount, Fabric_Width, A, B, C, D, E, F, G, H, Calculate, Clear, Chaircover } = getLabels(useRouter().locale);
+  const { Amount, Fabric_Width, Calculate, Clear, Chaircover } = labels;
 
   const calculate = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const res = await fetchApi('/api/chaircover', { amount, fabricWidth, a, b, c, d, e, f, g, h });
+    const res = await fetchApi('/api/chaircover', { amount, fabricWidth, a, b, c, d, e, f, g, h }, locale);
     if (res.message) {
       setResult(res.message);
     } else {
@@ -55,11 +54,11 @@ const Chaircover: NextPage = () => {
               <Row>
                 <Col>
                   <Form.Group className="mb-3" controlId="a">
-                    <Form.Label>{A}</Form.Label>
+                    <Form.Label>A</Form.Label>
                     <Form.Control type="number" onChange={(e) => setA(+e.target.value)} />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="b">
-                    <Form.Label>{B}</Form.Label>
+                    <Form.Label>B</Form.Label>
                     <Form.Control type="number" onChange={(e) => setB(+e.target.value)} />
                   </Form.Group>
                 </Col>
@@ -67,31 +66,31 @@ const Chaircover: NextPage = () => {
               </Row>
               <Row>
                 <Form.Group as={Col} className="mb-3" controlId="c">
-                  <Form.Label>{C}</Form.Label>
+                  <Form.Label>C</Form.Label>
                   <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setC(+e.target.value)} />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3" controlId="d">
-                  <Form.Label>{D}</Form.Label>
+                  <Form.Label>D</Form.Label>
                   <Form.Control type="number" onChange={(e) => setD(+e.target.value)} />
                 </Form.Group>
               </Row>
               <Row>
                 <Form.Group as={Col} className="mb-3" controlId="e">
-                  <Form.Label>{E}</Form.Label>
+                  <Form.Label>E</Form.Label>
                   <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setE(+e.target.value)} />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3" controlId="f">
-                  <Form.Label>{F}</Form.Label>
+                  <Form.Label>F</Form.Label>
                   <Form.Control type="number" onChange={(e) => setF(+e.target.value)} />
                 </Form.Group>
               </Row>
               <Row>
                 <Form.Group as={Col} className="mb-3" controlId="g">
-                  <Form.Label>{G}</Form.Label>
+                  <Form.Label>G</Form.Label>
                   <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setG(+e.target.value)} />
                 </Form.Group>
                 <Form.Group as={Col} className="mb-3" controlId="h">
-                  <Form.Label>{H}</Form.Label>
+                  <Form.Label>H</Form.Label>
                   <Form.Control type="number" onChange={(e) => setH(+e.target.value)} />
                 </Form.Group>
               </Row>
