@@ -1,3 +1,4 @@
+import { isNotZero } from './../../utils/helpers/check';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ChaircoverModel } from './../../models/ChaircoverModel';
 import { isNum } from '../../utils/helpers/check'
@@ -5,8 +6,8 @@ import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 
 const checkInputs = (req: NextApiRequest) => {
-  const { amount, fabricWidth, a, b, c, d, e, f, g, h } = req.body
-  return isNum(amount) && isNum(fabricWidth) && isNum(a) && isNum(b) && isNum(c) && isNum(d) && isNum(e) && isNum(f) && isNum(g) && isNum(h)
+  const { amount, fabricWidth, a, b, c, d, e, f, g, h } = req.body;
+  return isNum(amount, fabricWidth, a, b, c, d, e, f, g, h) && isNotZero(amount, fabricWidth, a, b, c, d, e, f, g, h);
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {

@@ -1,21 +1,20 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
-import { ChangeEvent, FormEvent, useRef, useState } from 'react'
-import { Container, Card, Form, Row, Col, Button, FormControlProps, FormControl } from 'react-bootstrap'
+import { FormEvent, useRef, useState } from 'react'
+import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp'
 import fetchApi from '../utils/helpers/fetchApi'
-import getLabels from '../utils/i18n/labels'
 
-const Flower: NextPage = () => {
+const Flower: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState<number[]>(Array(9).fill(0));
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Length, Width, Calculate, Clear, Flower } = getLabels(useRouter().locale);
+  const { Length, Width, Calculate, Clear, Flower } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/flower', { amount, length, width });
+    const res = await fetchApi('/api/flower', { amount, length, width }, locale);
     if (res.message) {
       setResult(res.message);
     } else {

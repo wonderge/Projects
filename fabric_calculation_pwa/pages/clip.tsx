@@ -1,11 +1,10 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
 import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp'
 import fetchApi from '../utils/helpers/fetchApi'
-import getLabels from '../utils/i18n/labels'
 
-const Clip: NextPage = () => {
+const Clip: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
@@ -14,11 +13,11 @@ const Clip: NextPage = () => {
   const [skirtLength, setSkirtLength] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Width, Fabric_Width, Skirt_Amount, Skirt_Length, Calculate, Clear, Clip } = getLabels(useRouter().locale);
+  const { Amount, Length, Width, Fabric_Width, Skirt_Amount, Skirt_Length, Calculate, Clear, Clip } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/clip', { amount, length, width, fabricWidth, skirtAmount, skirtLength });
+    const res = await fetchApi('/api/clip', { amount, length, width, fabricWidth, skirtAmount, skirtLength }, locale);
     if (res.message) {
       setResult(res.message);
     } else {

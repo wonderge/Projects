@@ -1,22 +1,21 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { FormEvent, useRef, useState } from 'react'
 import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap'
+import { PageProp } from '../models/PageProp'
 import fetchApi from '../utils/helpers/fetchApi'
-import getLabels from '../utils/i18n/labels'
 
-const ButtonCurtain: NextPage = () => {
+const ButtonCurtain: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [height, setHeight] = useState(0);
   const [patternSize, setPatternSize] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Height, Pattern_Size, Fabric_Width, Button_Curtain, Calculate, Clear, SE_Spacing, Spacing, Button_Count } = getLabels(useRouter().locale);
+  const { Amount, Height, Pattern_Size, Fabric_Width, Button_Curtain, Calculate, Clear, SE_Spacing, Spacing, Button_Count } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/buttoncurtain',  { amount, height, patternSize, fabricWidth });
+    const res = await fetchApi('/api/buttoncurtain',  { amount, height, patternSize, fabricWidth }, locale);
     if (res.message) {
       setResult(res.message)
     } else {

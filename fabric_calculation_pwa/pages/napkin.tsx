@@ -1,13 +1,11 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router';
 import { FormEvent, useRef, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
-import ResModel from '../models/ResModel';
+import { PageProp } from '../models/PageProp';
 import { SideType } from '../models/SideType';
 import fetchApi from '../utils/helpers/fetchApi';
-import getLabels from '../utils/i18n/labels';
 
-const Napkin: NextPage = () => {
+const Napkin: NextPage<PageProp> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
@@ -16,11 +14,11 @@ const Napkin: NextPage = () => {
   const [type, setType] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Width, Fabric_Width, Fabric_Amount, Hemmed, Marrow, Napkin, Calculate, Clear } = getLabels(useRouter().locale);
+  const { Amount, Length, Width, Fabric_Width, Fabric_Amount, Hemmed, Marrow, Napkin, Calculate, Clear } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const res = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type });
+    const res = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type }, locale);
     if (res.message !== undefined) {
       setResult(res.message);
     } else if (res.amount !== 0) {

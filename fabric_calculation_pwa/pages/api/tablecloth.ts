@@ -1,3 +1,4 @@
+import { isNotZero } from './../../utils/helpers/check';
 import { TableclothModel } from './../../models/TableclothModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { isNum, isEnum } from '../../utils/helpers/check';
@@ -7,10 +8,11 @@ import withCheck from '../../middlewares/withCheck';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, type, length, width, joints, fabricWidth, fabricAmount } = req.body;
-  const numCheck = isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth) && isNum(fabricAmount);
+  const numCheck = isNum(amount, length, width, fabricWidth, fabricAmount);
+  const nonZeroCheck = isNotZero(amount, length, width, fabricWidth) || isNotZero(length, width, fabricWidth, fabricAmount)
   const typeCheck = isEnum(type, SideType);
   const jointsCheck = joints === 0 || joints === 1 || joints === 2
-  return numCheck && typeCheck && jointsCheck;
+  return numCheck && typeCheck && jointsCheck && nonZeroCheck;
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {

@@ -1,3 +1,4 @@
+import { isNotZero } from './../../utils/helpers/check';
 import { RoundclothModel } from './../../models/RoundclothModel';
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { isNum } from '../../utils/helpers/check'
@@ -5,8 +6,8 @@ import withCheck from '../../middlewares/withCheck'
 import ResModel from '../../models/ResModel'
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, diameter, fabricWidth, fabricAmount } = req.body
-  return isNum(amount) && isNum(diameter) && isNum(fabricWidth) && isNum(fabricAmount)
+  const { amount, diameter, fabricWidth, fabricAmount } = req.body;
+  return isNum(amount, diameter, fabricWidth, fabricAmount) && (isNotZero(amount, diameter, fabricWidth) || isNotZero(diameter, fabricWidth, fabricAmount));
 }
 
 const calculateSidePieceLength = (fabricWidth: number, diameter: number, radius: number, halfFabricWidth: number): number[] => {

@@ -6,10 +6,10 @@ import { EndType } from './../../models/SideType';
 import { isNum, isEnum } from '../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, length, width, fabricWidth, type } = req.body
-  const numCheck = isNum(amount) && isNum(length) && isNum(width) && isNum(fabricWidth)
-  const typeCheck = isEnum(type, EndType)
-  return numCheck && typeCheck
+  const { amount, length, width, fabricWidth, type } = req.body;
+  const numCheck = isNum(amount, length, width, fabricWidth);
+  const typeCheck = isEnum(type, EndType);
+  return numCheck && typeCheck;
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
