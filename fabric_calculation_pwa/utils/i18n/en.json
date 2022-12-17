@@ -58,5 +58,6 @@
   "Small_Tube": "Small tube",
   "Big_Tube": "Big tube",
 
-  "Invalid_Inputs": "Not enough fields filled out"
+  "Invalid_Inputs": "Not enough fields filled out",
+  "Offline": "Sorry currently offline, cannot load webpage"
 }

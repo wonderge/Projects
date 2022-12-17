@@ -55,5 +55,6 @@
   "Small_Tube": "小管",
   "Big_Tube": "大管",
 
-  "Invalid_Inputs": "请输入所有选项"
+  "Invalid_Inputs": "请输入所有选项",
+  "Offline": "抱歉, 连接网络失败，无法显示页面"
 }
