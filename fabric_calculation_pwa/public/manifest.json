@@ -4,9 +4,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Fabric Calculation PWA",
-    "short_name": "Fabric Calculation PWA",
-    "description": "Fabric Calculation PWA",
+    "name": "Fabric Calculation",
+    "short_name": "Fabric Calculation",
+    "description": "An app to calculate fabric usage for different textile products",
     "icons": [
         {
             "src": "/icon-192x192.png",
