@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Container, Card, Form, Image, Row, Col, Button } from 'react-bootstrap'
-import { PageProp } from '../models/PageProp'
+import { Form, Image, Row, Col, Button } from 'react-bootstrap'
+import CardContainer from '../components/CardContainer'
+import { PageProps } from '../models/PageProps'
 import fetchApi from '../utils/helpers/fetchApi'
 
-const Chaircover: NextPage<PageProp> = ({ locale, labels }) => {
+const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [a, setA] = useState(0);
@@ -45,75 +46,69 @@ const Chaircover: NextPage<PageProp> = ({ locale, labels }) => {
   }
 
   return (
-    <Container className='d-flex align-items-center justify-content-center flex-column' style={{ minHeight: "calc(100vh - 56px)" }}>
-      <div className="w-100" style={{ maxWidth: '400px' }}>
-        <Card className='p-1'>
-          <Card.Body>
-            <h2 className='text-center'>{Chaircover}</h2>
-            <Form onSubmit={calculate} ref={form}>
-              <Row>
-                <Col>
-                  <Form.Group className="mb-3" controlId="a">
-                    <Form.Label>A</Form.Label>
-                    <Form.Control type="number" onChange={(e) => setA(+e.target.value)} />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="b">
-                    <Form.Label>B</Form.Label>
-                    <Form.Control type="number" onChange={(e) => setB(+e.target.value)} />
-                  </Form.Group>
-                </Col>
-                <Col className='text-center'><Image src='/chaircover.png' width={140} /></Col>
-              </Row>
-              <Row>
-                <Form.Group as={Col} className="mb-3" controlId="c">
-                  <Form.Label>C</Form.Label>
-                  <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setC(+e.target.value)} />
-                </Form.Group>
-                <Form.Group as={Col} className="mb-3" controlId="d">
-                  <Form.Label>D</Form.Label>
-                  <Form.Control type="number" onChange={(e) => setD(+e.target.value)} />
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group as={Col} className="mb-3" controlId="e">
-                  <Form.Label>E</Form.Label>
-                  <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setE(+e.target.value)} />
-                </Form.Group>
-                <Form.Group as={Col} className="mb-3" controlId="f">
-                  <Form.Label>F</Form.Label>
-                  <Form.Control type="number" onChange={(e) => setF(+e.target.value)} />
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group as={Col} className="mb-3" controlId="g">
-                  <Form.Label>G</Form.Label>
-                  <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setG(+e.target.value)} />
-                </Form.Group>
-                <Form.Group as={Col} className="mb-3" controlId="h">
-                  <Form.Label>H</Form.Label>
-                  <Form.Control type="number" onChange={(e) => setH(+e.target.value)} />
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group as={Col} className="mb-3" controlId="amount">
-                  <Form.Label>{Amount}</Form.Label>
-                  <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setAmount(+e.target.value)} />
-                </Form.Group>
-                <Form.Group as={Col} className="mb-3" controlId="fabric-width">
-                  <Form.Label>{Fabric_Width}</Form.Label>
-                  <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
-                </Form.Group>
-              </Row>
-              <Row>
-                <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-                <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-              </Row>
-              <div className='text-center'>{result}</div>
-            </Form>
-          </Card.Body>
-        </Card>
-      </div>
-    </Container>
+    <CardContainer>
+      <h2 className='text-center'>{Chaircover}</h2>
+      <Form onSubmit={calculate} ref={form}>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3" controlId="a">
+              <Form.Label>A</Form.Label>
+              <Form.Control type="number" onChange={(e) => setA(+e.target.value)} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="b">
+              <Form.Label>B</Form.Label>
+              <Form.Control type="number" onChange={(e) => setB(+e.target.value)} />
+            </Form.Group>
+          </Col>
+          <Col className='text-center'><Image src='/chaircover.png' width={140} /></Col>
+        </Row>
+        <Row>
+          <Form.Group as={Col} className="mb-3" controlId="c">
+            <Form.Label>C</Form.Label>
+            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setC(+e.target.value)} />
+          </Form.Group>
+          <Form.Group as={Col} className="mb-3" controlId="d">
+            <Form.Label>D</Form.Label>
+            <Form.Control type="number" onChange={(e) => setD(+e.target.value)} />
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group as={Col} className="mb-3" controlId="e">
+            <Form.Label>E</Form.Label>
+            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setE(+e.target.value)} />
+          </Form.Group>
+          <Form.Group as={Col} className="mb-3" controlId="f">
+            <Form.Label>F</Form.Label>
+            <Form.Control type="number" onChange={(e) => setF(+e.target.value)} />
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group as={Col} className="mb-3" controlId="g">
+            <Form.Label>G</Form.Label>
+            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setG(+e.target.value)} />
+          </Form.Group>
+          <Form.Group as={Col} className="mb-3" controlId="h">
+            <Form.Label>H</Form.Label>
+            <Form.Control type="number" onChange={(e) => setH(+e.target.value)} />
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group as={Col} className="mb-3" controlId="amount">
+            <Form.Label>{Amount}</Form.Label>
+            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setAmount(+e.target.value)} />
+          </Form.Group>
+          <Form.Group as={Col} className="mb-3" controlId="fabric-width">
+            <Form.Label>{Fabric_Width}</Form.Label>
+            <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+          </Form.Group>
+        </Row>
+        <Row>
+          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
+          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
+        </Row>
+        <div className='text-center'>{result}</div>
+      </Form>
+    </CardContainer>
   )
 }
 

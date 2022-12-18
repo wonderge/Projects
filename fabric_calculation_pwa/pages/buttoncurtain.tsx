@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Container, Card, Form, Row, Col, Button } from 'react-bootstrap'
-import { PageProp } from '../models/PageProp'
+import { Form, Row, Col, Button } from 'react-bootstrap'
+import CardContainer from '../components/CardContainer'
+import { PageProps } from '../models/PageProps'
 import fetchApi from '../utils/helpers/fetchApi'
 
-const ButtonCurtain: NextPage<PageProp> = ({ locale, labels }) => {
+const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [height, setHeight] = useState(0);
   const [patternSize, setPatternSize] = useState(0);
@@ -39,38 +40,32 @@ const ButtonCurtain: NextPage<PageProp> = ({ locale, labels }) => {
   }
 
   return (
-    <Container className='d-flex align-items-center justify-content-center flex-column' style={{ minHeight: "calc(100vh - 56px)" }}>
-      <div className="w-100" style={{ maxWidth: '400px' }}>
-        <Card className='p-1'>
-          <Card.Body>
-            <h2 className='text-center'>{Button_Curtain}</h2>
-            <Form onSubmit={calculate} ref={form}>
-              <Form.Group className="mb-3" controlId="amount">
-                <Form.Label>{Amount}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="length">
-                <Form.Label>{Height}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setHeight(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="width">
-                <Form.Label>{Pattern_Size}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setPatternSize(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="fabric-width">
-                <Form.Label>{Fabric_Width}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
-              </Form.Group>
-              <Row>
-                <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-                <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-              </Row>
-              <div className='text-center'>{result}</div>
-            </Form>
-          </Card.Body>
-        </Card>
-      </div>
-    </Container>
+    <CardContainer>
+      <h2 className='text-center'>{Button_Curtain}</h2>
+      <Form onSubmit={calculate} ref={form}>
+        <Form.Group className="mb-3" controlId="amount">
+          <Form.Label>{Amount}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="length">
+          <Form.Label>{Height}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setHeight(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="width">
+          <Form.Label>{Pattern_Size}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setPatternSize(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="fabric-width">
+          <Form.Label>{Fabric_Width}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+        </Form.Group>
+        <Row>
+          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
+          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
+        </Row>
+        <div className='text-center'>{result}</div>
+      </Form>
+    </CardContainer>
   )
 }
 

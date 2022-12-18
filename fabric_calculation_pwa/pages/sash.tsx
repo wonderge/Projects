@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
-import { PageProp } from '../models/PageProp'
+import { Form, Button, Col, Row } from 'react-bootstrap'
+import CardContainer from '../components/CardContainer'
+import { PageProps } from '../models/PageProps'
 import { EndType } from '../models/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
 
-const Sash: NextPage<PageProp> = ({ locale, labels }) => {
+const Sash: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
@@ -35,42 +36,36 @@ const Sash: NextPage<PageProp> = ({ locale, labels }) => {
   }
 
   return (
-    <Container className='d-flex align-items-center justify-content-center flex-column' style={{ minHeight: "calc(100vh - 56px)" }}>
-      <div className="w-100" style={{ maxWidth: '400px' }}>
-        <Card className='p-1'>
-          <Card.Body>
-            <h2 className='text-center'>{Sash}</h2>
-            <Form onSubmit={calculate} ref={form}>
-              <div className='text-center'>
-                <Form.Check inline type='radio' label={Straight} name='type' onClick={(e) => setType(EndType.Straight)} />
-                <Form.Check inline type='radio' label={Slant} name='type' onClick={(e) => setType(EndType.Slant)} />
-              </div>
-              <Form.Group className="mb-3" controlId="amount">
-                <Form.Label>{Amount}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="length">
-                <Form.Label>{Length}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setLength(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="width">
-                <Form.Label>{Width}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="fabric-width">
-                <Form.Label>{Fabric_Width}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
-              </Form.Group>
-              <Row className='mb-3'>
-                <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-                <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-              </Row>
-              <div className='text-center'>{result}</div>
-            </Form>
-          </Card.Body>
-        </Card>
-      </div>
-    </Container>
+    <CardContainer>
+      <h2 className='text-center'>{Sash}</h2>
+      <Form onSubmit={calculate} ref={form}>
+        <div className='text-center'>
+          <Form.Check inline type='radio' label={Straight} name='type' onClick={(e) => setType(EndType.Straight)} />
+          <Form.Check inline type='radio' label={Slant} name='type' onClick={(e) => setType(EndType.Slant)} />
+        </div>
+        <Form.Group className="mb-3" controlId="amount">
+          <Form.Label>{Amount}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="length">
+          <Form.Label>{Length}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setLength(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="width">
+          <Form.Label>{Width}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="fabric-width">
+          <Form.Label>{Fabric_Width}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+        </Form.Group>
+        <Row className='mb-3'>
+          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
+          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
+        </Row>
+        <div className='text-center'>{result}</div>
+      </Form>
+    </CardContainer>
   )
 }
 

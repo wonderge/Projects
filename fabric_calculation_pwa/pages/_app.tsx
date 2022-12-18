@@ -7,7 +7,7 @@ import getLabels from '../utils/i18n/labels';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const locale = useRouter().locale;
-  const labels = getLabels(locale)
+  const labels = getLabels(locale);
   return (
     <>
       <Head>

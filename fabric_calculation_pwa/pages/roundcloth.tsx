@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react';
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
-import { PageProp } from '../models/PageProp';
+import { Button, Col, Form, Row } from 'react-bootstrap'
+import CardContainer from '../components/CardContainer';
+import { PageProps } from '../models/PageProps';
 import fetchApi from '../utils/helpers/fetchApi';
 
-const Roundcloth: NextPage<PageProp> = ({ locale, labels }) => {
+const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
   const [diameter, setDiameter] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
@@ -40,38 +41,32 @@ const Roundcloth: NextPage<PageProp> = ({ locale, labels }) => {
   } 
 
   return (
-    <Container className='d-flex align-items-center justify-content-center flex-column' style={{ minHeight: "calc(100vh - 56px)" }}>
-      <div className="w-100" style={{ maxWidth: '400px' }}>
-        <Card className='p-1'>
-          <Card.Body>
-            <h2 className='text-center'>{Roundcloth}</h2>
-            <Form onSubmit={calculate} ref={form}>
-              <Form.Group className="mb-3" controlId="amount">
-                <Form.Label>{Amount}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="diameter">
-                <Form.Label>{Diameter}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setDiameter(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="fabric-width">
-                <Form.Label>{Fabric_Width}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="fabric-amount">
-                <Form.Label>{Fabric_Amount}</Form.Label>
-                <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
-              </Form.Group>
-              <Row className='mb-3'>
-                <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-                <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-              </Row>
-              <div className='text-center'>{result}</div>
-            </Form>
-          </Card.Body>
-        </Card>
-      </div>
-    </Container>
+    <CardContainer>
+      <h2 className='text-center'>{Roundcloth}</h2>
+      <Form onSubmit={calculate} ref={form}>
+        <Form.Group className="mb-3" controlId="amount">
+          <Form.Label>{Amount}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="diameter">
+          <Form.Label>{Diameter}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setDiameter(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="fabric-width">
+          <Form.Label>{Fabric_Width}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="fabric-amount">
+          <Form.Label>{Fabric_Amount}</Form.Label>
+          <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
+        </Form.Group>
+        <Row className='mb-3'>
+          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
+          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
+        </Row>
+        <div className='text-center'>{result}</div>
+      </Form>
+    </CardContainer>
   )
 }
 
