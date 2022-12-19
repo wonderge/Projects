@@ -14,7 +14,7 @@ const Curtain: NextPage<PageProps> = ({ locale, labels }) => {
   const [multiple, setMultiple] = useState(0);
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Length, Height, Fabric_Width, Calculate, Clear, Curtain, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive  } = labels;
+  const { Amount, Length, Height, Fabric_Width, Calculate, Clear, Curtain, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import withCheck from '../../middlewares/withCheck'
-import ResModel from '../../models/ResModel'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import withCheck from '../../middlewares/withCheck';
+import ResModel from '../../models/ResModel';
+import { isEnum, isNum } from '../../utils/helpers/check';
 import { SashModel } from './../../models/SashModel';
 import { EndType } from './../../models/SideType';
-import { isNum, isEnum } from '../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, length, width, fabricWidth, type } = req.body;

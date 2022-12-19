@@ -44,33 +44,33 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
       <h2 className='text-center'>{Tablecloth}</h2>
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
-          <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Hemmed)}/>
-          <Form.Check inline type='radio' label={Hemmed} name='type' onClick={() => setType(SideType.Marrow)}/>
+          <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Hemmed)} />
+          <Form.Check inline type='radio' label={Hemmed} name='type' onClick={() => setType(SideType.Marrow)} />
         </div>
         <div className='text-center'>
-          <Form.Check inline type='radio' label={No_Joints} name='joints' onClick={() => setJoints(0)}/>
-          <Form.Check inline type='radio' label={One_Joint} name='joints' onClick={() => setJoints(1)}/>
-          <Form.Check inline type='radio' label={Two_Joints} name='joints' onClick={() => setJoints(2)}/>
+          <Form.Check inline type='radio' label={No_Joints} name='joints' onClick={() => setJoints(0)} />
+          <Form.Check inline type='radio' label={One_Joint} name='joints' onClick={() => setJoints(1)} />
+          <Form.Check inline type='radio' label={Two_Joints} name='joints' onClick={() => setJoints(2)} />
         </div>
         <Form.Group className="mb-3" controlId="amount">
           <Form.Label>{Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)}/>
+          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="length">
           <Form.Label>{Length}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setLength(+e.target.value)}/>
+          <Form.Control type="number" onChange={(e) => setLength(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="width">
           <Form.Label>{Width}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)}/>
+          <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-width">
           <Form.Label>{Fabric_Width}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)}/>
+          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-amount">
           <Form.Label>{Fabric_Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)}/>
+          <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
         </Form.Group>
         <Row className='mb-3'>
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>

@@ -16,7 +16,7 @@ const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/buttoncurtain',  { amount, height, patternSize, fabricWidth }, locale);
+    const res = await fetchApi('/api/buttoncurtain', { amount, height, patternSize, fabricWidth }, locale);
     if (res.message) {
       setResult(res.message)
     } else {

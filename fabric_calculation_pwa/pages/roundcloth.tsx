@@ -38,7 +38,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
     setFabricWidth(0);
     setFabricAmount(0);
     setResult('');
-  } 
+  }
 
   return (
     <CardContainer>

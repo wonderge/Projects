@@ -36,7 +36,7 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
     setWidth(0);
     setFabricWidth(0);
     setFabricAmount(0);
-  }  
+  }
 
   return (
     <CardContainer>

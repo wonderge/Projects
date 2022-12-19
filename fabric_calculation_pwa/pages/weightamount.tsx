@@ -13,10 +13,10 @@ const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Weight, Calculate, Clear, Small_Tube, Big_Tube, Weight_And_Amount } = labels;
-  
+
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/weightandamount',  { weight, tube, fabric }, locale);
+    const res = await fetchApi('/api/weightandamount', { weight, tube, fabric }, locale);
     if (res.message) {
       setResult(res.message);
     } else {
@@ -46,7 +46,7 @@ const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
         </div>
         <Form.Group className="mb-3" controlId="fabric-amount">
           <Form.Label>{Weight}</Form.Label>
-          <Form.Control type="number"  onChange={(e) => setWeight(+e.target.value)} />
+          <Form.Control type="number" onChange={(e) => setWeight(+e.target.value)} />
         </Form.Group>
         <Row className='mb-3'>
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>

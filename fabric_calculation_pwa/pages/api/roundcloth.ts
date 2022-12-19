@@ -1,9 +1,9 @@
-import { isNotZero } from './../../utils/helpers/check';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import withCheck from '../../middlewares/withCheck';
+import ResModel from '../../models/ResModel';
+import { isNum } from '../../utils/helpers/check';
 import { RoundclothModel } from './../../models/RoundclothModel';
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { isNum } from '../../utils/helpers/check'
-import withCheck from '../../middlewares/withCheck'
-import ResModel from '../../models/ResModel'
+import { isNotZero } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, diameter, fabricWidth, fabricAmount } = req.body;
@@ -28,7 +28,7 @@ const calculateSidePieceLength = (fabricWidth: number, diameter: number, radius:
 const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
   const { amount, diameter, fabricWidth, fabricAmount }: RoundclothModel = req.body
   const radius = diameter / 2
-  const halfFabricWidth =  fabricWidth / 2
+  const halfFabricWidth = fabricWidth / 2
   const sideLength = calculateSidePieceLength(fabricWidth, diameter, radius, halfFabricWidth)
 
   let yards = 0, meters = 0, amountResult = 0

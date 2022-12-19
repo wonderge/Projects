@@ -1,9 +1,9 @@
-import { isNotZero } from './../../utils/helpers/check';
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import withCheck from '../../middlewares/withCheck';
+import ResModel from '../../models/ResModel';
+import { isNum } from '../../utils/helpers/check';
 import { ChaircoverModel } from './../../models/ChaircoverModel';
-import { isNum } from '../../utils/helpers/check'
-import withCheck from '../../middlewares/withCheck'
-import ResModel from '../../models/ResModel'
+import { isNotZero } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest) => {
   const { amount, fabricWidth, a, b, c, d, e, f, g, h } = req.body;

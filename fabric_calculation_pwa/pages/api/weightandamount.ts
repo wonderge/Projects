@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { isEnum, isNum } from '../../utils/helpers/check';
-import withCheck from '../../middlewares/withCheck'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import withCheck from '../../middlewares/withCheck';
 import ResModel from '../../models/ResModel';
 import { FabricType, TubeType, WeightAmountModel } from '../../models/WeightAmountModel';
+import { isEnum, isNum } from '../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { tube, fabric, weight } = req.body;

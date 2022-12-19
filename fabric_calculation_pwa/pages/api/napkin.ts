@@ -1,10 +1,10 @@
-import { isNotZero } from './../../utils/helpers/check';
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { isEnum, isNum } from '../../utils/helpers/check';
-import { NapkinModel } from '../../models/NapkinModel';
-import { SideType } from './../../models/SideType';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
+import { NapkinModel } from '../../models/NapkinModel';
 import type ResModel from '../../models/ResModel';
+import { isEnum, isNum } from '../../utils/helpers/check';
+import { SideType } from './../../models/SideType';
+import { isNotZero } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, type, length, width, fabricWidth, fabricAmount }: any = req.body;

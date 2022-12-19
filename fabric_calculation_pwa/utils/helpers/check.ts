@@ -1,7 +1,7 @@
-import { TubeType, FabricType } from './../../models/WeightAmountModel';
-import { SideType, EndType } from './../../models/SideType';
+import { EndType, SideType } from './../../models/SideType';
+import { FabricType, TubeType } from './../../models/WeightAmountModel';
 export const isNum = (...values: any[]): boolean => {
-  return values.every(value => typeof(value) === 'number');
+  return values.every(value => typeof (value) === 'number');
 }
 
 export const isNotZero = (...values: any[]): boolean => {

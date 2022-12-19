@@ -1,8 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import withCheck from '../../middlewares/withCheck';
+import ResModel from '../../models/ResModel';
+import { isNum } from '../../utils/helpers/check';
 import { FlowerModel } from './../../models/FlowerModel';
-import { isNum } from '../../utils/helpers/check'
-import withCheck from '../../middlewares/withCheck'
-import ResModel from '../../models/ResModel'
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, length, width } = req.body;

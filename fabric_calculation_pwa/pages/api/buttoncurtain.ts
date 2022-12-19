@@ -1,9 +1,9 @@
-import { isNotZero } from './../../utils/helpers/check';
-import { ButtonCurtainModel } from './../../models/ButtonCurtainModel';
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { isNum } from '../../utils/helpers/check';
-import withCheck from '../../middlewares/withCheck'
+import type { NextApiRequest, NextApiResponse } from 'next';
+import withCheck from '../../middlewares/withCheck';
 import ResModel from '../../models/ResModel';
+import { isNum } from '../../utils/helpers/check';
+import { ButtonCurtainModel } from './../../models/ButtonCurtainModel';
+import { isNotZero } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, height, patternSize, fabricWidth } = req.body;
