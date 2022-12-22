@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
-import ResModel from '../../models/ResModel';
+import { FlowerModel } from '../../models/Flower.model';
+import ResType from '../../types/ResType';
 import { isNum } from '../../utils/helpers/check';
-import { FlowerModel } from './../../models/FlowerModel';
 
 const checkInputs = (req: NextApiRequest): boolean => {
   const { amount, length, width } = req.body;
@@ -11,7 +11,7 @@ const checkInputs = (req: NextApiRequest): boolean => {
   return arrayCheck && numCheck;
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   const { amount, length, width }: FlowerModel = req.body
   const paperArea = length * width
 

@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
-import ResModel from '../../models/ResModel';
+import { ChaircoverModel } from '../../models/Chaircover.model';
+import ResType from '../../types/ResType';
 import { isNum } from '../../utils/helpers/check';
-import { ChaircoverModel } from './../../models/ChaircoverModel';
 import { isNotZero } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest) => {
@@ -10,7 +10,7 @@ const checkInputs = (req: NextApiRequest) => {
   return isNum(amount, fabricWidth, a, b, c, d, e, f, g, h) && isNotZero(amount, fabricWidth, a, b, c, d, e, f, g, h);
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   const { fabricWidth, a, b, c, e, f, g }: ChaircoverModel = req.body
   let { amount, d, h }: ChaircoverModel = req.body
   let lengths: number[] = [], ratios: number[] = []

@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useState, useRef, FormEvent } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
-import { PageProps } from '../models/PageProps';
+import { PageProps } from '../types/PageProps';
 import fetchApi from '../utils/helpers/fetchApi';
 
 const Gauze: NextPage<PageProps> = ({ locale, labels }) => {

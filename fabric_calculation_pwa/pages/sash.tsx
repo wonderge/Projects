@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
 import { Form, Button, Col, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
-import { PageProps } from '../models/PageProps'
-import { EndType } from '../models/SideType'
+import { PageProps } from '../types/PageProps'
+import { EndType } from '../types/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
 
 const Sash: NextPage<PageProps> = ({ locale, labels }) => {

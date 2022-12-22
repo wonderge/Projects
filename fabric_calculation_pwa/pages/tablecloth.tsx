@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import { useRef, FormEvent, useState } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
-import { PageProps } from '../models/PageProps'
-import { SideType } from '../models/SideType'
+import { PageProps } from '../types/PageProps'
+import { SideType } from '../types/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
 
 const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
-import ResModel from '../../models/ResModel';
-import { FabricType, TubeType, WeightAmountModel } from '../../models/WeightAmountModel';
+import { FabricType, TubeType, WeightAmountModel } from '../../models/WeightAmount.model';
+import ResType from '../../types/ResType';
 import { isEnum, isNum } from '../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
@@ -9,7 +9,7 @@ const checkInputs = (req: NextApiRequest): boolean => {
   return isEnum(tube, TubeType) && isEnum(fabric, FabricType) && isNum(weight)
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   const { tube, fabric, weight }: WeightAmountModel = req.body
   const tubeWeight = tube === TubeType.Small ? 220 : 270
   const fabricWeight = fabric === FabricType.Satin ? 210 : 250

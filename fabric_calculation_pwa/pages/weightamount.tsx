@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
 import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
-import { PageProps } from '../models/PageProps';
-import { FabricType, TubeType } from '../models/WeightAmountModel';
+import { PageProps } from '../types/PageProps';
+import { FabricType, TubeType } from '../models/WeightAmount.model';
 import fetchApi from '../utils/helpers/fetchApi';
 
 const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {

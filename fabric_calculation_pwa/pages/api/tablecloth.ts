@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
-import ResModel from '../../models/ResModel';
+import { TableclothModel } from '../../models/Tablecloth.model';
+import ResType from '../../types/ResType';
+import { SideType } from '../../types/SideType';
 import { isEnum, isNum } from '../../utils/helpers/check';
-import { SideType } from './../../models/SideType';
-import { TableclothModel } from './../../models/TableclothModel';
 import { isNotZero } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
@@ -15,7 +15,7 @@ const checkInputs = (req: NextApiRequest): boolean => {
   return numCheck && typeCheck && jointsCheck && nonZeroCheck;
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResModel>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   const { amount, type, joints, fabricWidth, fabricAmount }: TableclothModel = req.body;
   let { length, width }: TableclothModel = req.body;
 

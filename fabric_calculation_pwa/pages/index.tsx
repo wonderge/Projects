@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { Row, Col } from 'react-bootstrap'
 import ButtonLink from '../components/ButtonLink'
 import CardContainer from '../components/CardContainer'
-import { PageProps } from '../models/PageProps'
+import { PageProps } from '../types/PageProps'
 
 const Home: NextPage<PageProps> = ({ labels }) => {
   const { Napkin, Tablecloth, Roundcloth, Sash, Clip, Chaircover, Curtain, Gauze, Flower, Button_Curtain, Weight_And_Amount } = labels;

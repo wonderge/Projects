@@ -1,4 +1,4 @@
-type ResModel = {
+type ResType = {
   yards?: number,
   meters?: number,
   amount?: number,
@@ -8,4 +8,4 @@ type ResModel = {
   extras?: any
 }
 
-export default ResModel
+export default ResType

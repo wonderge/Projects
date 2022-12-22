@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
-import { PageProps } from '../models/PageProps';
-import { SideType } from '../models/SideType';
+import { PageProps } from '../types/PageProps';
+import { SideType } from '../types/SideType';
 import fetchApi from '../utils/helpers/fetchApi';
 
 const Napkin: NextPage<PageProps> = ({ locale, labels }) => {

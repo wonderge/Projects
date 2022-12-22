@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
 import { Form, Image, Row, Col, Button } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
-import { PageProps } from '../models/PageProps'
+import { PageProps } from '../types/PageProps'
 import fetchApi from '../utils/helpers/fetchApi'
 
 const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
