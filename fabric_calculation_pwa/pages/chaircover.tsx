@@ -53,11 +53,11 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
           <Col>
             <Form.Group className="mb-3" controlId="a">
               <Form.Label>A</Form.Label>
-              <Form.Control type="number" onChange={(e) => setA(+e.target.value)} />
+              <Form.Control type="number" step="any" onChange={(e) => setA(+e.target.value)} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="b">
               <Form.Label>B</Form.Label>
-              <Form.Control type="number" onChange={(e) => setB(+e.target.value)} />
+              <Form.Control type="number" step="any" onChange={(e) => setB(+e.target.value)} />
             </Form.Group>
           </Col>
           <Col className='text-center'><Image src='/chaircover.png' width={140} /></Col>
@@ -65,41 +65,41 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
         <Row>
           <Form.Group as={Col} className="mb-3" controlId="c">
             <Form.Label>C</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setC(+e.target.value)} />
+            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setC(+e.target.value)} />
           </Form.Group>
           <Form.Group as={Col} className="mb-3" controlId="d">
             <Form.Label>D</Form.Label>
-            <Form.Control type="number" onChange={(e) => setD(+e.target.value)} />
+            <Form.Control type="number" step="any" onChange={(e) => setD(+e.target.value)} />
           </Form.Group>
         </Row>
         <Row>
           <Form.Group as={Col} className="mb-3" controlId="e">
             <Form.Label>E</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setE(+e.target.value)} />
+            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setE(+e.target.value)} />
           </Form.Group>
           <Form.Group as={Col} className="mb-3" controlId="f">
             <Form.Label>F</Form.Label>
-            <Form.Control type="number" onChange={(e) => setF(+e.target.value)} />
+            <Form.Control type="number" step="any" onChange={(e) => setF(+e.target.value)} />
           </Form.Group>
         </Row>
         <Row>
           <Form.Group as={Col} className="mb-3" controlId="g">
             <Form.Label>G</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setG(+e.target.value)} />
+            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setG(+e.target.value)} />
           </Form.Group>
           <Form.Group as={Col} className="mb-3" controlId="h">
             <Form.Label>H</Form.Label>
-            <Form.Control type="number" onChange={(e) => setH(+e.target.value)} />
+            <Form.Control type="number" step="any" onChange={(e) => setH(+e.target.value)} />
           </Form.Group>
         </Row>
         <Row>
           <Form.Group as={Col} className="mb-3" controlId="amount">
             <Form.Label>{Amount}</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setAmount(+e.target.value)} />
+            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setAmount(+e.target.value)} />
           </Form.Group>
           <Form.Group as={Col} className="mb-3" controlId="fabric-width">
             <Form.Label>{Fabric_Width}</Form.Label>
-            <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+            <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
           </Form.Group>
         </Row>
         <Row>

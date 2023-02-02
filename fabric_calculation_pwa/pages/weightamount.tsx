@@ -46,7 +46,7 @@ const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
         </div>
         <Form.Group className="mb-3" controlId="fabric-amount">
           <Form.Label>{Weight}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setWeight(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setWeight(+e.target.value)} />
         </Form.Group>
         <Row className='mb-3'>
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>

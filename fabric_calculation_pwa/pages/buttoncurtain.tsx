@@ -45,19 +45,19 @@ const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
       <Form onSubmit={calculate} ref={form}>
         <Form.Group className="mb-3" controlId="amount">
           <Form.Label>{Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setAmount(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="length">
           <Form.Label>{Height}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setHeight(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setHeight(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="width">
           <Form.Label>{Pattern_Size}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setPatternSize(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setPatternSize(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-width">
           <Form.Label>{Fabric_Width}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
         </Form.Group>
         <Row>
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>

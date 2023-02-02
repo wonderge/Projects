@@ -48,23 +48,23 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
         </div>
         <Form.Group className="mb-3" controlId="amount">
           <Form.Label>{Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setAmount(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="length">
           <Form.Label>{Length}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setLength(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setLength(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="width">
           <Form.Label>{Width}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setWidth(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setWidth(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-width">
           <Form.Label>{Fabric_Width}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-amount">
           <Form.Label>{Fabric_Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setFabricAmount(+e.target.value)} />
         </Form.Group>
         <Row className='mb-3'>
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>

@@ -46,19 +46,19 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
       <Form onSubmit={calculate} ref={form}>
         <Form.Group className="mb-3" controlId="amount">
           <Form.Label>{Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setAmount(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setAmount(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="diameter">
           <Form.Label>{Diameter}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setDiameter(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setDiameter(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-width">
           <Form.Label>{Fabric_Width}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricWidth(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="fabric-amount">
           <Form.Label>{Fabric_Amount}</Form.Label>
-          <Form.Control type="number" onChange={(e) => setFabricAmount(+e.target.value)} />
+          <Form.Control type="number" step="any" onChange={(e) => setFabricAmount(+e.target.value)} />
         </Form.Group>
         <Row className='mb-3'>
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
