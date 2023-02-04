@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
+import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
 import { SideType } from '../types/SideType';
 import fetchApi from '../utils/helpers/fetchApi';
@@ -20,9 +21,9 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     const res = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type }, locale);
-    if (res.message !== undefined) {
+    if (res.message) {
       setResult(res.message);
-    } else if (res.amount !== 0) {
+    } else if (res.amount !== undefined) {
       setResult(`${res.amount}pcs`);
     } else {
       setResult(`${res.yards}y\n${res.meters}m`);
@@ -70,7 +71,7 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
           <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
         </Row>
-        <div className='text-center' style={{ whiteSpace: "pre" }}>{result}</div>
+        <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
   )

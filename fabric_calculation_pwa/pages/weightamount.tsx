@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Container, Card, Form, Button, Col, Row } from 'react-bootstrap'
+import { Form, Button, Col, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
 import { PageProps } from '../types/PageProps';
 import { FabricType, TubeType } from '../models/WeightAmount.model';
 import fetchApi from '../utils/helpers/fetchApi';
+import TextWrap from '../components/TextWrap';
 
 const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
   const [weight, setWeight] = useState(0);
@@ -52,7 +53,7 @@ const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
           <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
         </Row>
-        <div className='text-center'>{result}</div>
+        <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
   )

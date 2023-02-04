@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
 import { Form, Button, Col, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
+import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
 import { EndType } from '../types/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
@@ -63,7 +64,7 @@ const Sash: NextPage<PageProps> = ({ locale, labels }) => {
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
           <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
         </Row>
-        <div className='text-center'>{result}</div>
+        <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
   )

@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import { useRef, FormEvent, useState } from 'react'
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
+import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
 import { SideType } from '../types/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
@@ -21,9 +22,9 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints }, locale);
-    if (res.message !== undefined) {
+    if (res.message) {
       setResult(res.message);
-    } else if (res.amount !== 0) {
+    } else if (res.amount !== undefined) {
       setResult(`${res.amount}pcs`);
     } else {
       setResult(`${res.yards}y\n${res.meters}m`);
@@ -76,7 +77,7 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
           <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
         </Row>
-        <div className='text-center'>{result}</div>
+        <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
   )

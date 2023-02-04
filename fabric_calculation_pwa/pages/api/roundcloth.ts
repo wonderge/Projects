@@ -49,7 +49,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   } else {
     amountResult = Math.floor(fabricAmount * 36 / (sideLength[1] * ((radius - fabricWidth) * 2 / fabricWidth) + (diameter + sideLength[0])) / 1.03);
   }
-
+  
   return res.json({ yards: Number(yards.toFixed(1)), meters: Number(meters.toFixed(1)), amount: Number(amountResult.toFixed(1)), extras: { sideLength } })
 }
 

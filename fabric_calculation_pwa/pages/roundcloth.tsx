@@ -2,7 +2,9 @@ import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
+import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
+import ResType from '../types/ResType';
 import fetchApi from '../utils/helpers/fetchApi';
 
 const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
@@ -14,19 +16,26 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength } = labels;
 
+  const getSidelengthMsg = ({ extras }: ResType) => {
+    let { sideLength }: { sideLength: number[] | undefined } = extras
+
+    if (sideLength?.length && sideLength.length < 2) {
+      return `${Sidelength} 1: ${sideLength[0]}inch`;
+    } else if (sideLength?.length && sideLength.length > 1) {
+      return `${Sidelength} 1: ${sideLength[0]}inch\n${Sidelength} 2: ${sideLength[1]}inch`;
+    }
+  }
+
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount }, locale);
     if (res.message) {
       setResult(res.message);
+    } else if (res.amount !== undefined) {
+      let msg = `${res.amount}pcs\n${getSidelengthMsg(res)}`
+      setResult(msg)
     } else {
-      let msg = `${res.yards}y\n${res.meters}m`;
-      let { sidelength }: { sidelength: number[] | undefined } = res.extras;
-      if (sidelength?.length && sidelength.length < 2) {
-        msg += `\n${Sidelength} 1: ${sidelength[0]}inch`;
-      } else if (sidelength?.length && sidelength.length > 1) {
-        msg += `\n${Sidelength} 1: ${sidelength[0]}inch\n${Sidelength} 2: ${sidelength[1]}inch`;
-      }
+      let msg = `${res.yards}y ${res.meters}m\n${getSidelengthMsg(res)}`;
       setResult(msg)
     }
   }
@@ -64,7 +73,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
           <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
           <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
         </Row>
-        <div className='text-center'>{result}</div>
+        <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
   )
