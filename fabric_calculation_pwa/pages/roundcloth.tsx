@@ -5,6 +5,7 @@ import CardContainer from '../components/CardContainer';
 import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
 import ResType from '../types/ResType';
+import { SideType } from '../types/SideType';
 import fetchApi from '../utils/helpers/fetchApi';
 
 const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
@@ -12,9 +13,10 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
   const [diameter, setDiameter] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [fabricAmount, setFabricAmount] = useState(0);
+  const [type, setType] = useState('');
   const [result, setResult] = useState('');
   const form = useRef<HTMLFormElement>(null);
-  const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength } = labels;
+  const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength, Marrow, Hemmed } = labels;
 
   const getSidelengthMsg = ({ extras }: ResType) => {
     let { sideLength }: { sideLength: number[] | undefined } = extras
@@ -28,7 +30,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount }, locale);
+    const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount, type }, locale);
     if (res.message) {
       setResult(res.message);
     } else if (res.amount !== -1) {
@@ -54,6 +56,10 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
       <h2 className='text-center'>{Roundcloth}</h2>
       <Form onSubmit={calculate} ref={form}>
         <Form.Group className="mb-3" controlId="amount">
+          <div className='text-center'>
+            <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Marrow)} />
+            <Form.Check inline type='radio' label={Hemmed} name='type' onClick={() => setType(SideType.Hemmed)} />
+          </div>
           <Form.Label>{Amount}</Form.Label>
           <Form.Control type="number" step="any" onChange={(e) => setAmount(+e.target.value)} />
         </Form.Group>

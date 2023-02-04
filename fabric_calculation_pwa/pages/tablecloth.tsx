@@ -45,8 +45,8 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
       <h2 className='text-center'>{Tablecloth}</h2>
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
-          <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Hemmed)} />
-          <Form.Check inline type='radio' label={Hemmed} name='type' onClick={() => setType(SideType.Marrow)} />
+          <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Marrow)} />
+          <Form.Check inline type='radio' label={Hemmed} name='type' onClick={() => setType(SideType.Hemmed)} />
         </div>
         <div className='text-center'>
           <Form.Check inline type='radio' label={No_Joints} name='joints' onClick={() => setJoints(0)} />

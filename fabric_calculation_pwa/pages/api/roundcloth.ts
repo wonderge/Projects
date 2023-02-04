@@ -2,12 +2,16 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
 import { RoundclothModel } from '../../models/Roundcloth.model';
 import ResType from '../../types/ResType';
+import { SideType } from '../../types/SideType';
 import { isNum } from '../../utils/helpers/check';
-import { isNotZero } from './../../utils/helpers/check';
+import { isNotZero, isEnum } from './../../utils/helpers/check';
 
 const checkInputs = (req: NextApiRequest): boolean => {
-  const { amount, diameter, fabricWidth, fabricAmount } = req.body;
-  return isNum(amount, diameter, fabricWidth, fabricAmount) && (isNotZero(amount, diameter, fabricWidth) || isNotZero(diameter, fabricWidth, fabricAmount));
+  const { amount, diameter, fabricWidth, fabricAmount, type } = req.body;
+  const numcheck = isNum(amount, diameter, fabricWidth, fabricAmount);
+  const nonZeroCheck = isNotZero(amount, diameter, fabricWidth) || isNotZero(diameter, fabricWidth, fabricAmount);
+  const typeCheck = isEnum(type, SideType)
+  return numcheck && nonZeroCheck && typeCheck;
 }
 
 const calculateSidePieceLength = (fabricWidth: number, diameter: number, radius: number, halfFabricWidth: number): number[] => {
@@ -26,12 +30,17 @@ const calculateSidePieceLength = (fabricWidth: number, diameter: number, radius:
 }
 
 const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
-  const { amount, diameter, fabricWidth, fabricAmount }: RoundclothModel = req.body
+  const { amount, fabricWidth, fabricAmount, type }: RoundclothModel = req.body
+  let { diameter }: RoundclothModel = req.body
   const radius = diameter / 2
   const halfFabricWidth = fabricWidth / 2
   const sideLength = calculateSidePieceLength(fabricWidth, diameter, radius, halfFabricWidth)
 
   let yards = -1, meters = -1, amountResult = -1
+
+  if (type === SideType.Hemmed) {
+    diameter += 1.5;
+  }
 
   const fcalc = fabricAmount === 0
 
