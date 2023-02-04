@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap"
 
 const ButtonLink = ({ className, href, children }: { className?: string, href: string, children?: ReactNode }) => {
   return (
-    <Link href={href}><Button className={className}>{children}</Button></Link>
+    <Link href={href} passHref><Button className={className}>{children}</Button></Link>
   )
 }
 

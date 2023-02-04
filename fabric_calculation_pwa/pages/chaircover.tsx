@@ -61,7 +61,7 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
               <Form.Control type="number" step="any" onChange={(e) => setB(+e.target.value)} />
             </Form.Group>
           </Col>
-          <Col className='text-center'><Image src='/chaircover.png' width={140} /></Col>
+          <Col className='text-center'><Image src='/chaircover.png' alt='picture of chair with labels A-H for dimensions' width={140} /></Col>
         </Row>
         <Row>
           <Form.Group as={Col} className="mb-3" controlId="c">
