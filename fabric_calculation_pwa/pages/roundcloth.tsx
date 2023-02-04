@@ -31,7 +31,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
     const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount }, locale);
     if (res.message) {
       setResult(res.message);
-    } else if (res.amount !== undefined) {
+    } else if (res.amount !== -1) {
       let msg = `${res.amount}pcs\n${getSidelengthMsg(res)}`
       setResult(msg)
     } else {

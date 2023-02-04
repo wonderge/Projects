@@ -24,7 +24,7 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
     const res = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints }, locale);
     if (res.message) {
       setResult(res.message);
-    } else if (res.amount !== undefined) {
+    } else if (res.amount !== -1) {
       setResult(`${res.amount}pcs`);
     } else {
       setResult(`${res.yards}y\n${res.meters}m`);

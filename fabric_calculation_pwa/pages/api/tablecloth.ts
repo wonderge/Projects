@@ -20,7 +20,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   let { length, width }: TableclothModel = req.body;
 
   const fcalc = fabricAmount === 0;
-  let ratio = 0, leftover, pieces, meters = 0, yards = 0, amountResult = 0;
+  let ratio = 0, leftover, pieces, meters = -1, yards = -1, amountResult = -1;
 
   if (type == SideType.Hemmed) {
     length += 1.5;

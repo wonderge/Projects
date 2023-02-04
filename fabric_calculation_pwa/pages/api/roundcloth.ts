@@ -31,7 +31,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
   const halfFabricWidth = fabricWidth / 2
   const sideLength = calculateSidePieceLength(fabricWidth, diameter, radius, halfFabricWidth)
 
-  let yards = 0, meters = 0, amountResult = 0
+  let yards = -1, meters = -1, amountResult = -1
 
   const fcalc = fabricAmount === 0
 
