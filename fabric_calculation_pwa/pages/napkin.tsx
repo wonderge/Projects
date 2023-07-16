@@ -25,7 +25,7 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
     const res = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type }, locale);
     if (res.message) {
       setResult(res.message);
-    } else if (res.amount !== undefined) {
+    } else if (res.hasOwnProperty('amount')) {
       setResult(`${res.amount}pcs`);
     } else {
       setResult(`${res.yards}y\n${res.meters}m`);

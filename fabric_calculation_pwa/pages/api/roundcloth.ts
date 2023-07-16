@@ -55,11 +55,11 @@ const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
       yards = ((diameter + sideLength[0]) * amount + sideLength[1] * Math.ceil((radius - fabricWidth) * 2 * amount / fabricWidth)) / 36;
       meters = ((diameter + sideLength[0]) * amount + sideLength[1] * Math.ceil((radius - fabricWidth) * 2 * amount / fabricWidth)) / 39;
     }
+    return res.json({ yards: Number(yards.toFixed(1)), meters: Number(meters.toFixed(1)), extras: { sideLength } })
   } else {
     amountResult = Math.floor(fabricAmount * 36 / (sideLength[1] * ((radius - fabricWidth) * 2 / fabricWidth) + (diameter + sideLength[0])) / 1.03);
+    return res.json({ amount: Number(amountResult.toFixed(1)), extras: { sideLength } })
   }
-  
-  return res.json({ yards: Number(yards.toFixed(1)), meters: Number(meters.toFixed(1)), amount: Number(amountResult.toFixed(1)), extras: { sideLength } })
 }
 
 export default withCheck(handler, checkInputs)

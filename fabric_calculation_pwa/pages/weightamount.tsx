@@ -1,11 +1,13 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form, Button, Col, Row } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
 import { PageProps } from '../types/PageProps';
 import { FabricType, TubeType } from '../models/WeightAmount.model';
 import fetchApi from '../utils/helpers/fetchApi';
 import TextWrap from '../components/TextWrap';
+import FormInput from '../components/FormInput';
+import FormSubmit from '../components/FormSubmit';
 
 const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
   const [weight, setWeight] = useState(0);
@@ -45,14 +47,8 @@ const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
           <Form.Check inline type='radio' label='Satin' name='fabric' onClick={() => setFabric(FabricType.Satin)} />
           <Form.Check inline type='radio' label='Poplin' name='fabric' onClick={() => setFabric(FabricType.Poplin)} />
         </div>
-        <Form.Group className="mb-3" controlId="fabric-amount">
-          <Form.Label>{Weight}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setWeight(+e.target.value)} />
-        </Form.Group>
-        <Row className='mb-3'>
-          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-        </Row>
+        <FormInput label={Weight} className='mb-3' controlId='amount' onChange={(e) => setWeight(+e.target.value)} />
+        <FormSubmit className='mb-3' calculateLabel={Calculate} clearLabel={Clear} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>

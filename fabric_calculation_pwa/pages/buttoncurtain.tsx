@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
 import fetchApi from '../utils/helpers/fetchApi'
+import FormInput from '../components/FormInput'
+import FormSubmit from '../components/FormSubmit'
 
 const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
@@ -44,26 +46,11 @@ const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
     <CardContainer>
       <h2 className='text-center'>{Button_Curtain}</h2>
       <Form onSubmit={calculate} ref={form}>
-        <Form.Group className="mb-3" controlId="amount">
-          <Form.Label>{Amount}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setAmount(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="length">
-          <Form.Label>{Height}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setHeight(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="width">
-          <Form.Label>{Pattern_Size}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setPatternSize(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="fabric-width">
-          <Form.Label>{Fabric_Width}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
-        </Form.Group>
-        <Row>
-          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-        </Row>
+        <FormInput label={Amount} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
+        <FormInput label={Height} className='mb-3' controlId='height' onChange={(e) => setHeight(+e.target.value)} />
+        <FormInput label={Pattern_Size} className='mb-3' controlId='pattern-size' onChange={(e) => setPatternSize(+e.target.value)} />
+        <FormInput label={Fabric_Width} className='mb-3' controlId='fabric-width' onChange={(e) => setFabricWidth(+e.target.value)} />
+        <FormSubmit className='mb-3' calculateLabel={Calculate} clearLabel={Clear} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>

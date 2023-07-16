@@ -5,6 +5,8 @@ import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
 import fetchApi from '../utils/helpers/fetchApi'
+import FormInput from '../components/FormInput'
+import FormSubmit from '../components/FormSubmit'
 
 const Flower: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState<number[]>(Array(9).fill(0));
@@ -41,63 +43,27 @@ const Flower: NextPage<PageProps> = ({ locale, labels }) => {
       <h2 className='text-center'>{Flower}</h2>
       <Form onSubmit={calculate} ref={form}>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="80cm">
-            <Form.Label>80cm</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => updateAmountAt(+e.target.value, 0)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="70cm">
-            <Form.Label>70cm</Form.Label>
-            <Form.Control type="number" onChange={(e) => updateAmountAt(+e.target.value, 1)} />
-          </Form.Group>
+          <FormInput label='80cm' className='mb-3' controlId='80cm' onChange={(e) => updateAmountAt(+e.target.value, 0)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='70cm' className='mb-3' controlId='70cm' onChange={(e) => updateAmountAt(+e.target.value, 1)} as={Col} />
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="60cm">
-            <Form.Label>60cm</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => updateAmountAt(+e.target.value, 2)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="50cm">
-            <Form.Label>50cm</Form.Label>
-            <Form.Control type="number" onChange={(e) => updateAmountAt(+e.target.value, 3)} />
-          </Form.Group>
+          <FormInput label='60cm' className='mb-3' controlId='60cm' onChange={(e) => updateAmountAt(+e.target.value, 2)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='50cm' className='mb-3' controlId='50cm' onChange={(e) => updateAmountAt(+e.target.value, 3)} as={Col} />
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="40cm">
-            <Form.Label>40cm</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => updateAmountAt(+e.target.value, 4)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="30cm">
-            <Form.Label>30cm</Form.Label>
-            <Form.Control type="number" onChange={(e) => updateAmountAt(+e.target.value, 5)} />
-          </Form.Group>
+          <FormInput label='40cm' className='mb-3' controlId='40cm' onChange={(e) => updateAmountAt(+e.target.value, 4)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='30cm' className='mb-3' controlId='30cm' onChange={(e) => updateAmountAt(+e.target.value, 5)} as={Col} />
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="20cm">
-            <Form.Label>20cm</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => updateAmountAt(+e.target.value, 6)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="15cm">
-            <Form.Label>15cm</Form.Label>
-            <Form.Control type="number" onChange={(e) => updateAmountAt(+e.target.value, 7)} />
-          </Form.Group>
+          <FormInput label='20cm' className='mb-3' controlId='20cm' onChange={(e) => updateAmountAt(+e.target.value, 6)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='15cm' className='mb-3' controlId='15cm' onChange={(e) => updateAmountAt(+e.target.value, 7)} as={Col} />
         </Row>
         <div className='d-flex justify-content-center'>
-          <Form.Group className="mb-3" controlId="10cm">
-            <Form.Label>10cm</Form.Label>
-            <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => updateAmountAt(+e.target.value, 8)} />
-          </Form.Group>
+          <FormInput label='10cm' className='mb-3' controlId='10cm' onChange={(e) => updateAmountAt(+e.target.value, 8)} as={Col} />
         </div>
-        <Form.Group className="mb-3" controlId="length">
-          <Form.Label>{Length}</Form.Label>
-          <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setLength(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="width">
-          <Form.Label>{Width}</Form.Label>
-          <Form.Control type="number" className='mr-3 pr-3' onChange={(e) => setWidth(+e.target.value)} />
-        </Form.Group>
-        <Row>
-          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-        </Row>
+        <FormInput label={Length} className='mb-3' controlId='length' onChange={(e) => setLength(+e.target.value)} />
+        <FormInput label={Width} className='mb-3' controlId='width' onChange={(e) => setWidth(+e.target.value)} />
+        <FormSubmit className='mb-3' calculateLabel={Calculate} clearLabel={Clear} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>

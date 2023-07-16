@@ -1,11 +1,13 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form, Button, Col, Row } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
 import { EndType } from '../types/SideType'
 import fetchApi from '../utils/helpers/fetchApi'
+import FormInput from '../components/FormInput'
+import FormSubmit from '../components/FormSubmit'
 
 const Sash: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
@@ -44,26 +46,11 @@ const Sash: NextPage<PageProps> = ({ locale, labels }) => {
           <Form.Check inline type='radio' label={Straight} name='type' onClick={(e) => setType(EndType.Straight)} />
           <Form.Check inline type='radio' label={Slant} name='type' onClick={(e) => setType(EndType.Slant)} />
         </div>
-        <Form.Group className="mb-3" controlId="amount">
-          <Form.Label>{Amount}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setAmount(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="length">
-          <Form.Label>{Length}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setLength(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="width">
-          <Form.Label>{Width}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setWidth(+e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="fabric-width">
-          <Form.Label>{Fabric_Width}</Form.Label>
-          <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
-        </Form.Group>
-        <Row className='mb-3'>
-          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-        </Row>
+        <FormInput label={Amount} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
+        <FormInput label={Length} className='mb-3' controlId='length' onChange={(e) => setLength(+e.target.value)} />
+        <FormInput label={Width} className='mb-3' controlId='width' onChange={(e) => setWidth(+e.target.value)} />
+        <FormInput label={Fabric_Width} className='mb-3' controlId='fabric-width' onChange={(e) => setFabricWidth(+e.target.value)} />
+        <FormSubmit className='mb-3' calculateLabel={Calculate} clearLabel={Clear} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
