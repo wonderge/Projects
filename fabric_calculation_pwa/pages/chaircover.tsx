@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form, Image, Row, Col, Button } from 'react-bootstrap'
+import { Form, Image, Row, Col } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
 import fetchApi from '../utils/helpers/fetchApi'
+import FormSubmit from '../components/FormSubmit'
+import FormInput from '../components/FormInput'
 
 const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
   const [amount, setAmount] = useState(0);
@@ -52,61 +54,28 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
       <Form onSubmit={calculate} ref={form}>
         <Row>
           <Col>
-            <Form.Group className="mb-3" controlId="a">
-              <Form.Label>A</Form.Label>
-              <Form.Control type="number" step="any" onChange={(e) => setA(+e.target.value)} />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="b">
-              <Form.Label>B</Form.Label>
-              <Form.Control type="number" step="any" onChange={(e) => setB(+e.target.value)} />
-            </Form.Group>
+            <FormInput label='A' className='mb-3' controlId='a' onChange={(e) => setA(+e.target.value)} />
+            <FormInput label='B' className='mb-3' controlId='b' onChange={(e) => setB(+e.target.value)} />
           </Col>
           <Col className='text-center'><Image src='/chaircover.png' alt='picture of chair with labels A-H for dimensions' width={140} /></Col>
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="c">
-            <Form.Label>C</Form.Label>
-            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setC(+e.target.value)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="d">
-            <Form.Label>D</Form.Label>
-            <Form.Control type="number" step="any" onChange={(e) => setD(+e.target.value)} />
-          </Form.Group>
+          <FormInput label='C' className='mb-3' controlId='c' onChange={(e) => setC(+e.target.value)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='D' className='mb-3' controlId='d' onChange={(e) => setD(+e.target.value)} as={Col} />
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="e">
-            <Form.Label>E</Form.Label>
-            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setE(+e.target.value)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="f">
-            <Form.Label>F</Form.Label>
-            <Form.Control type="number" step="any" onChange={(e) => setF(+e.target.value)} />
-          </Form.Group>
+          <FormInput label='E' className='mb-3' controlId='e' onChange={(e) => setE(+e.target.value)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='F' className='mb-3' controlId='f' onChange={(e) => setF(+e.target.value)} as={Col} />
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="g">
-            <Form.Label>G</Form.Label>
-            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setG(+e.target.value)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="h">
-            <Form.Label>H</Form.Label>
-            <Form.Control type="number" step="any" onChange={(e) => setH(+e.target.value)} />
-          </Form.Group>
+          <FormInput label='G' className='mb-3' controlId='g' onChange={(e) => setG(+e.target.value)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label='H' className='mb-3' controlId='h' onChange={(e) => setH(+e.target.value)} as={Col} />
         </Row>
         <Row>
-          <Form.Group as={Col} className="mb-3" controlId="amount">
-            <Form.Label>{Amount}</Form.Label>
-            <Form.Control type="number" step="any" className='mr-3 pr-3' onChange={(e) => setAmount(+e.target.value)} />
-          </Form.Group>
-          <Form.Group as={Col} className="mb-3" controlId="fabric-width">
-            <Form.Label>{Fabric_Width}</Form.Label>
-            <Form.Control type="number" step="any" onChange={(e) => setFabricWidth(+e.target.value)} />
-          </Form.Group>
+          <FormInput label={Amount} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} as={Col} innerClassName='mr-3 pr-3' />
+          <FormInput label={Fabric_Width} className='mb-3' controlId='fabric-width' onChange={(e) => setFabricWidth(+e.target.value)} as={Col} />
         </Row>
-        <Row>
-          <Col className='text-center'><Button type='submit'>{Calculate}</Button></Col>
-          <Col className='text-center'><Button onClick={clear}>{Clear}</Button></Col>
-        </Row>
+        <FormSubmit className='mb-3' calculateLabel={Calculate} clearLabel={Clear} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
     </CardContainer>
