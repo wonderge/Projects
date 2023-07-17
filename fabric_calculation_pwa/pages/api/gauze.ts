@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
 import { CurtainModel } from '../../models/Curtain.model';
-import ResType from '../../types/ResType';
+import { Data } from '../../types/ResType';
 import { isNum } from '../../utils/helpers/check';
 import { isNotZero } from './../../utils/helpers/check';
 
@@ -10,7 +10,7 @@ const checkInputs = (req: NextApiRequest): boolean => {
   return isNum(amount, length, height, fabricWidth, multiple, cuts) && isNotZero(amount, length, height, fabricWidth, multiple);
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { amount, length, height, fabricWidth, multiple, cuts }: CurtainModel = req.body
 
   let fabricWidthAmount = 0

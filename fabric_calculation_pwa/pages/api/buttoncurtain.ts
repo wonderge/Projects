@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
 import { ButtonCurtainModel } from '../../models/ButtonCurtain.model';
-import ResType from '../../types/ResType';
+import { Data } from '../../types/ResType';
 import { isNum } from '../../utils/helpers/check';
 import { isNotZero } from './../../utils/helpers/check';
 
@@ -24,7 +24,7 @@ const getCircleSize = (side: number, length: number, start: number, end: number)
   return 0;
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { amount, patternSize, fabricWidth }: ButtonCurtainModel = req.body;
   let { height }: ButtonCurtainModel = req.body;
   if (patternSize != 0) {

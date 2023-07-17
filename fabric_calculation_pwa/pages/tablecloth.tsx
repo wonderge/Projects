@@ -23,13 +23,13 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints }, locale);
-    if (res.message) {
-      setResult(res.message);
-    } else if (res.amount !== -1) {
-      setResult(`${res.amount}pcs`);
+    const { status, data } = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
+    } else if (data.amount !== -1) {
+      setResult(`${data.amount}pcs`);
     } else {
-      setResult(`${res.yards}y\n${res.meters}m`);
+      setResult(`${data.yards}y\n${data.meters}m`);
     }
   }
 

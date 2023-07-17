@@ -25,11 +25,11 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const res = await fetchApi('/api/chaircover', { amount, fabricWidth, a, b, c, d, e, f, g, h }, locale);
-    if (res.message) {
-      setResult(res.message);
+    const { status, data } = await fetchApi('/api/chaircover', { amount, fabricWidth, a, b, c, d, e, f, g, h }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
     } else {
-      setResult(`${res.yards}y\n${res.meters}m`)
+      setResult(`${data.yards}y\n${data.meters}m`)
     }
   }
 

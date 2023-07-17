@@ -18,11 +18,11 @@ const Flower: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/flower', { amount, length, width }, locale);
-    if (res.message) {
-      setResult(res.message);
+    const { status, data } = await fetchApi('/api/flower', { amount, length, width }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
     } else {
-      setResult(`${res.required}pcs`)
+      setResult(`${data.required}pcs`)
     }
   }
 

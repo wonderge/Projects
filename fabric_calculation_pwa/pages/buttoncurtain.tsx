@@ -19,16 +19,16 @@ const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/buttoncurtain', { amount, height, patternSize, fabricWidth }, locale);
-    if (res.message) {
-      setResult(res.message)
+    const { status, data } = await fetchApi('/api/buttoncurtain', { amount, height, patternSize, fabricWidth }, locale);
+    if (status !== 200) {
+      setResult(data.message!)
     } else {
-      const { sides, sizes, buttonAmounts } = res.extras;
+      const { sides, sizes, buttonAmounts } = data.extras;
       let extra: string[] = [];
       for (let i = 0; i < sides.length; i++) {
         extra.push(`${SE_Spacing}: ${sides[i]}cm\n${Spacing}: ${sizes[i]}cm\n${Button_Count}: ${buttonAmounts[i]}pcs\n\n`)
       }
-      let msg = `${res.yards}y\n${res.meters}m` + extra.join("");
+      let msg = `${data.yards}y\n${data.meters}m` + extra.join("");
       setResult(msg)
     }
   }
