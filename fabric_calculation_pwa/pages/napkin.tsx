@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form} from 'react-bootstrap'
+import { Alert, Form} from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
 import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
@@ -17,18 +17,19 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
   const [fabricAmount, setFabricAmount] = useState(0);
   const [type, setType] = useState('');
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Length, Width, Fabric_Width, Fabric_Amount, Hemmed, Marrow, Napkin, Calculate, Clear } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    const res = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type }, locale);
-    if (res.message) {
-      setResult(res.message);
-    } else if (res.hasOwnProperty('amount')) {
-      setResult(`${res.amount}pcs`);
+    const { status, data } = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type }, locale);
+    if (status !== 200) {
+      setError(data.message!);
+    } else if (data.hasOwnProperty('amount')) {
+      setResult(`${data.amount}pcs`);
     } else {
-      setResult(`${res.yards}y\n${res.meters}m`);
+      setResult(`${data.yards}y\n${data.meters}m`);
     }
   }
 
@@ -45,6 +46,7 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
   return (
     <CardContainer>
       <h2 className='text-center'>{Napkin}</h2>
+      {error !== '' ? (<Alert variant='danger'>{error}</Alert>): '' }
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
           <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Marrow)} />

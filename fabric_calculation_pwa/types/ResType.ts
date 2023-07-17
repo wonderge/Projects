@@ -1,4 +1,9 @@
 type ResType = {
+  status: number,
+  data: Data
+}
+
+type Data = {
   yards?: number,
   meters?: number,
   amount?: number,
