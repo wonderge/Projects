@@ -1,8 +1,8 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import ResType from "../types/ResType";
+import { Data } from "../types/ResType";
 import getLabels from "../utils/i18n/labels";
 
-export default (handler: NextApiHandler<ResType>, checkInputs: (req: NextApiRequest) => boolean) => (req: NextApiRequest, res: NextApiResponse<ResType>) => {
+export default (handler: NextApiHandler<Data>, checkInputs: (req: NextApiRequest) => boolean) => (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { locale } = req.query;
   const lang = Array.isArray(locale) ? locale[0] : locale;
   const { Invalid_Inputs } = getLabels(lang);
