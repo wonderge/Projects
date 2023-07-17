@@ -21,11 +21,11 @@ const Sash: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/sash', { amount, length, width, fabricWidth, type }, locale);
-    if (res.message) {
-      setResult(res.message);
+    const { status, data } = await fetchApi('/api/sash', { amount, length, width, fabricWidth, type }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
     } else {
-      setResult(`${res.yards}y\n${res.meters}m`)
+      setResult(`${data.yards}y\n${data.meters}m`)
     }
   }
 

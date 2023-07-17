@@ -21,11 +21,11 @@ const Gauze: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/gauze', { amount, length, width: height, fabricWidth, cuts, multiple }, locale);
-    if (res.message) {
-      setResult(res.message);
+    const { status, data } = await fetchApi('/api/gauze', { amount, length, width: height, fabricWidth, cuts, multiple }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
     } else {
-      setResult(`${res.yards}y\n${res.meters}m`);
+      setResult(`${data.yards}y\n${data.meters}m`);
     }
   }
 

@@ -1,9 +1,9 @@
-type ResType = {
+export type ResType = {
   status: number,
   data: Data
 }
 
-type Data = {
+export type Data = {
   yards?: number,
   meters?: number,
   amount?: number,
@@ -12,5 +12,3 @@ type Data = {
   result?: number,
   extras?: any
 }
-
-export default ResType

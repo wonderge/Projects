@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
 import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
-import ResType from '../types/ResType';
+import { Data } from '../types/ResType';
 import { SideType } from '../types/SideType';
 import fetchApi from '../utils/helpers/fetchApi';
 import FormInput from '../components/FormInput';
@@ -20,7 +20,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength, Marrow, Hemmed } = labels;
 
-  const getSidelengthMsg = ({ extras }: ResType) => {
+  const getSidelengthMsg = ({ extras }: Data) => {
     let { sideLength }: { sideLength: number[] | undefined } = extras
 
     if (sideLength?.length && sideLength.length < 2) {
@@ -32,14 +32,14 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount, type }, locale);
-    if (res.message) {
-      setResult(res.message);
-    } else if (res.amount !== -1) {
-      let msg = `${res.amount}pcs\n${getSidelengthMsg(res)}`
+    const { status, data } = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount, type }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
+    } else if (data.amount !== -1) {
+      let msg = `${data.amount}pcs\n${getSidelengthMsg(data)}`
       setResult(msg)
     } else {
-      let msg = `${res.yards}y ${res.meters}m\n${getSidelengthMsg(res)}`;
+      let msg = `${data.yards}y ${data.meters}m\n${getSidelengthMsg(data)}`;
       setResult(msg)
     }
   }

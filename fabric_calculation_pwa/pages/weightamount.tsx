@@ -19,11 +19,11 @@ const WeightAmount: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await fetchApi('/api/weightandamount', { weight, tube, fabric }, locale);
-    if (res.message) {
-      setResult(res.message);
+    const { status, data } = await fetchApi('/api/weightandamount', { weight, tube, fabric }, locale);
+    if (status !== 200) {
+      setResult(data.message!);
     } else {
-      setResult(`${result}y`)
+      setResult(`${data.result}y`)
     }
   }
 

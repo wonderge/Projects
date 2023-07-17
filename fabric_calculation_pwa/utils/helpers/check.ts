@@ -1,5 +1,6 @@
 import { FabricType, TubeType } from '../../models/WeightAmount.model';
 import { EndType, SideType } from '../../types/SideType';
+
 export const isNum = (...values: any[]): boolean => {
   return values.every(value => typeof (value) === 'number');
 }

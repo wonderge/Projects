@@ -1,4 +1,4 @@
-import ResType from "../../types/ResType";
+import { ResType } from "../../types/ResType";
 
 const fetchApi = async (endpoint: string, payload: { [key: string]: number | string | Array<number> }, locale?: string): Promise<ResType> => {
   const body = JSON.stringify(payload);

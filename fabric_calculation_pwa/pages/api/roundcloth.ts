@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
 import { RoundclothModel } from '../../models/Roundcloth.model';
-import ResType from '../../types/ResType';
+import { Data } from '../../types/ResType';
 import { SideType } from '../../types/SideType';
 import { isNum } from '../../utils/helpers/check';
 import { isNotZero, isEnum } from './../../utils/helpers/check';
@@ -29,7 +29,7 @@ const calculateSidePieceLength = (fabricWidth: number, diameter: number, radius:
   return sideLength
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { amount, fabricWidth, fabricAmount, type }: RoundclothModel = req.body
   let { diameter }: RoundclothModel = req.body
   const radius = diameter / 2

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import withCheck from '../../middlewares/withCheck';
 import { SashModel } from '../../models/Sash.model';
-import ResType from '../../types/ResType';
+import { Data } from '../../types/ResType';
 import { EndType } from '../../types/SideType';
 import { isEnum, isNum } from '../../utils/helpers/check';
 
@@ -12,7 +12,7 @@ const checkInputs = (req: NextApiRequest): boolean => {
   return numCheck && typeCheck;
 }
 
-const handler = (req: NextApiRequest, res: NextApiResponse<ResType>) => {
+const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const { amount, width, fabricWidth, type }: SashModel = req.body
   let { length }: SashModel = req.body
 
