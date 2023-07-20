@@ -35,7 +35,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
     const { status, data } = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount, type }, locale);
     if (status !== 200) {
       setResult(data.message!);
-    } else if (data.amount !== -1) {
+    } else if (data.hasOwnProperty('amount')) {
       let msg = `${data.amount}pcs\n${getSidelengthMsg(data)}`
       setResult(msg)
     } else {

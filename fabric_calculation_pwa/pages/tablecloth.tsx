@@ -24,9 +24,10 @@ const Tablecloth: NextPage<PageProps> = ({ locale, labels }) => {
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/tablecloth', { amount, length, width, fabricWidth, fabricAmount, type, joints }, locale);
+    console.log(data);
     if (status !== 200) {
       setResult(data.message!);
-    } else if (data.amount !== -1) {
+    } else if (data.hasOwnProperty('amount')) {
       setResult(`${data.amount}pcs`);
     } else {
       setResult(`${data.yards}y\n${data.meters}m`);

@@ -23,6 +23,7 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
 
   const calculate = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+    setError('');
     const { status, data } = await fetchApi('/api/napkin', { amount, length, width, fabricWidth, fabricAmount, type }, locale);
     if (status !== 200) {
       setError(data.message!);
