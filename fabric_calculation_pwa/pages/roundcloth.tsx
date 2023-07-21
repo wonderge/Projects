@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react';
-import { Form } from 'react-bootstrap'
+import { Alert, Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
 import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
@@ -17,6 +17,7 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
   const [fabricAmount, setFabricAmount] = useState(0);
   const [type, setType] = useState('');
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Diameter, Fabric_Width, Fabric_Amount, Calculate, Clear, Roundcloth, Sidelength, Marrow, Hemmed } = labels;
 
@@ -33,8 +34,9 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/roundcloth', { amount, diameter, fabricWidth, fabricAmount, type }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!);
+      setError(data.message!);
     } else if (data.hasOwnProperty('amount')) {
       let msg = `${data.amount}pcs\n${getSidelengthMsg(data)}`
       setResult(msg)
@@ -51,11 +53,13 @@ const Roundcloth: NextPage<PageProps> = ({ locale, labels }) => {
     setFabricWidth(0);
     setFabricAmount(0);
     setResult('');
+    setError('');
   }
 
   return (
     <CardContainer>
       <h2 className='text-center'>{Roundcloth}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
             <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Marrow)} />

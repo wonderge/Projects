@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form, Image, Row, Col } from 'react-bootstrap'
+import { Form, Image, Row, Col, Alert } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
@@ -20,14 +20,16 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
   const [g, setG] = useState(0);
   const [h, setH] = useState(0);
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null)
   const { Amount, Fabric_Width, Calculate, Clear, Chaircover } = labels;
 
   const calculate = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     const { status, data } = await fetchApi('/api/chaircover', { amount, fabricWidth, a, b, c, d, e, f, g, h }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!);
+      setError(data.message!);
     } else {
       setResult(`${data.yards}y\n${data.meters}m`)
     }
@@ -46,11 +48,13 @@ const Chaircover: NextPage<PageProps> = ({ locale, labels }) => {
     setG(0);
     setH(0);
     setResult('');
+    setError('');
   }
 
   return (
     <CardContainer>
       <h2 className='text-center'>{Chaircover}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <Row>
           <Col>

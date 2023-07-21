@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form, Row, Col, Button, Alert } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
@@ -13,14 +13,16 @@ const Flower: NextPage<PageProps> = ({ locale, labels }) => {
   const [length, setLength] = useState(0);
   const [width, setWidth] = useState(0);
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Length, Width, Calculate, Clear, Flower } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/flower', { amount, length, width }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!);
+      setError(data.message!);
     } else {
       setResult(`${data.required}pcs`)
     }
@@ -32,6 +34,7 @@ const Flower: NextPage<PageProps> = ({ locale, labels }) => {
     setLength(0);
     setWidth(0);
     setResult('');
+    setError('');
   }
 
   const updateAmountAt = (value: number, index: number) => {
@@ -41,6 +44,7 @@ const Flower: NextPage<PageProps> = ({ locale, labels }) => {
   return (
     <CardContainer>
       <h2 className='text-center'>{Flower}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <Row>
           <FormInput label='80cm' className='mb-3' controlId='80cm' onChange={(e) => updateAmountAt(+e.target.value, 0)} as={Col} innerClassName='mr-3 pr-3' />

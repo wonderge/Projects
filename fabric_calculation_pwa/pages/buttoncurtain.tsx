@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Alert, Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
@@ -14,14 +14,16 @@ const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
   const [patternSize, setPatternSize] = useState(0);
   const [fabricWidth, setFabricWidth] = useState(0);
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Height, Pattern_Size, Fabric_Width, Button_Curtain, Calculate, Clear, SE_Spacing, Spacing, Button_Count } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/buttoncurtain', { amount, height, patternSize, fabricWidth }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!)
+      setError(data.message!)
     } else {
       const { sides, sizes, buttonAmounts } = data.extras;
       let extra: string[] = [];
@@ -40,11 +42,13 @@ const ButtonCurtain: NextPage<PageProps> = ({ locale, labels }) => {
     setPatternSize(0);
     setFabricWidth(0);
     setResult('');
+    setError('');
   }
 
   return (
     <CardContainer>
       <h2 className='text-center'>{Button_Curtain}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <FormInput label={Amount} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
         <FormInput label={Height} className='mb-3' controlId='height' onChange={(e) => setHeight(+e.target.value)} />

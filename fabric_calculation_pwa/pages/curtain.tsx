@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react';
-import { Form, } from 'react-bootstrap'
+import { Alert, Form, } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer';
 import TextWrap from '../components/TextWrap';
 import { PageProps } from '../types/PageProps';
@@ -16,14 +16,16 @@ const Curtain: NextPage<PageProps> = ({ locale, labels }) => {
   const [cuts, setCuts] = useState(0);
   const [multiple, setMultiple] = useState(0);
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Length, Height, Fabric_Width, Calculate, Clear, Curtain, No_Cut, Cut, One, OneFive, Two, TwoFive, Three, ThreeFive } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/curtain', { amount, length, height, fabricWidth, cuts, multiple }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!);
+      setError(data.message!);
     } else {
       setResult(`${data.yards}y\n${data.meters}m`);
     }
@@ -38,11 +40,13 @@ const Curtain: NextPage<PageProps> = ({ locale, labels }) => {
     setCuts(0);
     setMultiple(0);
     setResult('');
+    setError('');
   }
 
   return (
     <CardContainer>
       <h2 className='text-center'>{Curtain}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
           <Form.Check inline type='radio' label={No_Cut} name='cuts' onClick={() => setCuts(0)} />

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Alert, Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
@@ -16,14 +16,16 @@ const Sash: NextPage<PageProps> = ({ locale, labels }) => {
   const [fabricWidth, setFabricWidth] = useState(0);
   const [type, setType] = useState('');
   const [result, setResult] = useState("");
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Length, Width, Fabric_Width, Calculate, Clear, Straight, Slant, Sash } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/sash', { amount, length, width, fabricWidth, type }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!);
+      setError(data.message!);
     } else {
       setResult(`${data.yards}y\n${data.meters}m`)
     }
@@ -36,11 +38,13 @@ const Sash: NextPage<PageProps> = ({ locale, labels }) => {
     setWidth(0);
     setFabricWidth(0);
     setResult("");
+    setError('');
   }
 
   return (
     <CardContainer>
       <h2 className='text-center'>{Sash}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
           <Form.Check inline type='radio' label={Straight} name='type' onClick={(e) => setType(EndType.Straight)} />

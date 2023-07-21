@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { FormEvent, useRef, useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Alert, Form } from 'react-bootstrap'
 import CardContainer from '../components/CardContainer'
 import TextWrap from '../components/TextWrap'
 import { PageProps } from '../types/PageProps'
@@ -16,14 +16,16 @@ const Clip: NextPage<PageProps> = ({ locale, labels }) => {
   const [skirtAmount, setSkirtAmount] = useState(0);
   const [skirtLength, setSkirtLength] = useState(0);
   const [result, setResult] = useState('');
+  const [error, setError] = useState('');
   const form = useRef<HTMLFormElement>(null);
   const { Amount, Length, Width, Fabric_Width, Skirt_Amount, Skirt_Length, Calculate, Clear, Clip } = labels;
 
   const calculate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { status, data } = await fetchApi('/api/clip', { amount, length, width, fabricWidth, skirtAmount, skirtLength }, locale);
+    setError('');
     if (status !== 200) {
-      setResult(data.message!);
+      setError(data.message!);
     } else {
       setResult(`${data.yards}y\n${data.meters}m`)
     }
@@ -38,11 +40,13 @@ const Clip: NextPage<PageProps> = ({ locale, labels }) => {
     setSkirtAmount(0);
     setSkirtLength(0);
     setResult('');
+    setError('');
   }
 
   return (
     <CardContainer>
       <h2 className='text-center'>{Clip}</h2>
+      {error && <Alert variant='danger'>{error}</Alert>}
       <Form onSubmit={calculate} ref={form}>
         <FormInput label={Amount} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
         <FormInput label={Length} className='mb-3' controlId='length' onChange={(e) => setLength(+e.target.value)} />

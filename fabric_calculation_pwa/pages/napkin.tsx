@@ -47,7 +47,7 @@ const Napkin: NextPage<PageProps> = ({ locale, labels }) => {
   return (
     <CardContainer>
       <h2 className='text-center'>{Napkin}</h2>
-      {error !== '' ? (<Alert variant='danger'>{error}</Alert>): '' }
+      {error && (<Alert variant='danger'>{error}</Alert>)}
       <Form onSubmit={calculate} ref={form}>
         <div className='text-center'>
           <Form.Check inline type='radio' label={Marrow} name='type' onClick={() => setType(SideType.Marrow)} />
