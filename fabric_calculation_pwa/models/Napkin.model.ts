@@ -1,4 +1,4 @@
-import { SideType } from '../types/SideType';
+import { SideType } from '@utils/types';
 
 export type NapkinModel = {
   amount: number,
