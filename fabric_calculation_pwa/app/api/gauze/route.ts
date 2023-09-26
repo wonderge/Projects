@@ -47,4 +47,6 @@ const round = (amount: number, fabricWidthAmount: number) => {
   }
 }
 
-export default withCheck(handler, checkInputs)
+export const POST = withCheck(handler, checkInputs)
+
+export const GET = () => NextResponse.json({ message: 'Method GET is not allowed' }, { status: 400 })
