@@ -43,4 +43,4 @@ const handler: RouteHandler = (req) => {
 
 export const POST = withCheck(handler, checkInputs)
 
-export const GET = () => Response.json({ message: 'Method GET not allowed' }, { status: 400 })
+export const GET = () => NextResponse.json({ message: 'Method GET not allowed' }, { status: 400 })
