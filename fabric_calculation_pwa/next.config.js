@@ -8,11 +8,7 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development'
 });
 const nextConfig = withPWA({
-  reactStrictMode: true,
-  i18n: {
-    locales: ['en', 'zh'],
-    defaultLocale: 'en'
-  }
+  reactStrictMode: true
 });
 
 module.exports = nextConfig

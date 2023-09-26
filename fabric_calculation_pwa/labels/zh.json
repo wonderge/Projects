@@ -1,0 +1,62 @@
+{
+  "Calculate": "计算",
+  "Clear": "清除",
+
+  "Amount": "数量",
+  "Fabric_Width": "布宽",
+  "Fabric_Amount": "布量",
+  "Length": "长",
+  "Width": "宽",
+  "Hemmed": "卷边",
+  "Marrow": "码边",
+  
+  "Napkin": "餐巾",
+
+  "Tablecloth": "桌布",
+  "No_Joints": "No Joints",
+  "One_Joint": "One Joint",
+  "Two_Joints": "Two Joints",
+  
+  "Roundcloth": "圆形桌布",
+  "Diameter": "直径",
+  "Sidelength": "侧片边长",
+
+  "Clip": "Clip",
+  "Skirt_Amount": "桌裙数量",
+  "Skirt_Length": "桌裙长",
+
+  "Chaircover": "椅套",
+
+  "Sash": "Sash",
+  "Straight": "平边",
+  "Slant": "斜边",
+
+  "Flower": "花",
+
+  "Curtain": "窗帘",
+  "No_Cut": "不开",
+  "Cut": "开",
+  "One": "1倍",
+  "OneFive": "1.5倍",
+  "Two": "2倍",
+  "TwoFive": "2.5倍",
+  "Three": "3倍",
+  "ThreeFive": "3.5倍",
+  "Height": "高",
+
+  "Gauze": "窗纱",
+
+  "Button_Curtain": "塑扣窗帘",
+  "Pattern_Size": "花纹尺寸",
+  "SE_Size": "头尾距离",
+  "Spacing": "间隔",
+  "Button_Count": "塑扣数",
+
+  "Weight_And_Amount": "布量和重量",
+  "Weight": "重量",
+  "Small_Tube": "小管",
+  "Big_Tube": "大管",
+
+  "Invalid_Inputs": "请输入所有选项",
+  "Offline": "抱歉, 连接网络失败，无法显示页面"
+}

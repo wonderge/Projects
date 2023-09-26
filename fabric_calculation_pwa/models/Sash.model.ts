@@ -1,4 +1,4 @@
-import { EndType } from '../types/SideType';
+import { EndType } from '@utils/types';
 
 export type SashModel = {
   amount: number,
