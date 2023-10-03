@@ -1,60 +1,53 @@
 "use client"
 
-import { FormEvent, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Alert, Form } from 'react-bootstrap'
+import { useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
 import CardContainer from '@components/CardContainer'
 import TextWrap from '@components/TextWrap'
-import { EndType } from '@utils/types'
-import fetchApi from '@utils/fetchApi'
 import FormInput from '@components/FormInput'
 import FormSubmit from '@components/FormSubmit'
-import { useTranslations } from 'next-intl'
+import { EndType } from '@utils/types'
+import fetchApi from '@utils/fetchApi'
 
 const Sash = () => {
+  const { register, handleSubmit, reset } = useForm()
   const t = useTranslations()
-  const [amount, setAmount] = useState(0);
-  const [length, setLength] = useState(0);
-  const [width, setWidth] = useState(0);
-  const [fabricWidth, setFabricWidth] = useState(0);
-  const [type, setType] = useState('');
   const [result, setResult] = useState("");
   const [error, setError] = useState('');
-  const form = useRef<HTMLFormElement>(null);
 
-  const calculate = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const { status, data } = await fetchApi('/api/sash', { amount, length, width, fabricWidth, type });
+  const onSubmit = async (data: any) => {
+    const { status, result } = await fetchApi('/api/sash', data);
     setError('');
     if (status !== 200) {
-      setError(data.message!);
+      setError(result.message!);
     } else {
-      setResult(`${data.yards}y\n${data.meters}m`)
+      setResult(`${result.yards}y\n${result.meters}m`)
     }
   }
 
   const clear = () => {
-    form.current!.reset();
-    setAmount(0);
-    setLength(0);
-    setWidth(0);
-    setFabricWidth(0);
+    reset()
     setResult("");
     setError('');
   }
+
+  const registerAsNum = (name: string) => register(name, { setValueAs: (v) =>  v === "" ? 0: parseFloat(v) })
 
   return (
     <CardContainer>
       <h2 className='text-center'>{t("Sash")}</h2>
       {error && <Alert variant='danger'>{error}</Alert>}
-      <Form onSubmit={calculate} ref={form}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='text-center'>
-          <Form.Check inline type='radio' label={t("Straight")} name='type' onClick={() => setType(EndType.Straight)} />
-          <Form.Check inline type='radio' label={t("Slant")} name='type' onClick={() => setType(EndType.Slant)} />
+          <Form.Check inline type='radio' label={t("Straight")} {...register("type")} value={EndType.Straight} />
+          <Form.Check inline type='radio' label={t("Slant")} {...register("type")} value={EndType.Slant} />
         </div>
-        <FormInput label={t("Amount")} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
-        <FormInput label={t("Length")} className='mb-3' controlId='length' onChange={(e) => setLength(+e.target.value)} />
-        <FormInput label={t("Width")} className='mb-3' controlId='width' onChange={(e) => setWidth(+e.target.value)} />
-        <FormInput label={t("Fabric_Width")} className='mb-3' controlId='fabric-width' onChange={(e) => setFabricWidth(+e.target.value)} />
+        <FormInput label={t("Amount")} className='mb-3' controlId='amount' {...registerAsNum("amount")} />
+        <FormInput label={t("Length")} className='mb-3' controlId='length' {...registerAsNum("length")} />
+        <FormInput label={t("Width")} className='mb-3' controlId='width' {...registerAsNum("width")} />
+        <FormInput label={t("Fabric_Width")} className='mb-3' controlId='fabric-width' {...registerAsNum("fabricWidth")} />
         <FormSubmit className='mb-3' calculateLabel={t("Calculate")} clearLabel={t("Clear")} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>

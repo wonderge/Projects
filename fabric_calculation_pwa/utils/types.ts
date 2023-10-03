@@ -12,7 +12,7 @@ export enum EndType {
 
 export type ResType = {
   status: number,
-  data: Data
+  result: Data
 }
 
 export type Data = {

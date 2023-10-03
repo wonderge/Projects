@@ -1,70 +1,60 @@
 "use client"
 
-import { FormEvent, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Alert, Form, } from 'react-bootstrap'
+import { useTranslations } from 'next-intl';
+import { useForm } from 'react-hook-form';
 import CardContainer from '@components/CardContainer';
 import TextWrap from '@components/TextWrap';
-import fetchApi from '@utils/fetchApi';
 import FormInput from '@components/FormInput';
 import FormSubmit from '@components/FormSubmit';
-import { useTranslations } from 'next-intl';
+import fetchApi from '@utils/fetchApi';
 
 const Curtain = () => {
+  const { register, handleSubmit, reset } = useForm()
   const t = useTranslations()
-  const [amount, setAmount] = useState(0);
-  const [length, setLength] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [fabricWidth, setFabricWidth] = useState(0);
-  const [cuts, setCuts] = useState(0);
-  const [multiple, setMultiple] = useState(0);
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
-  const form = useRef<HTMLFormElement>(null);
 
-  const calculate = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const { status, data } = await fetchApi('/api/curtain', { amount, length, height, fabricWidth, cuts, multiple });
+  const onSubmit = async (data: any) => {
+    const { status, result } = await fetchApi('/api/curtain', data);
     setError('');
     if (status !== 200) {
-      setError(data.message!);
+      setError(result.message!);
     } else {
-      setResult(`${data.yards}y\n${data.meters}m`);
+      setResult(`${result.yards}y\n${result.meters}m`);
     }
   }
 
   const clear = () => {
-    form.current!.reset();
-    setAmount(0);
-    setLength(0);
-    setHeight(0);
-    setFabricWidth(0);
-    setCuts(0);
-    setMultiple(0);
+    reset()
     setResult('');
     setError('');
   }
+
+  const registerAsNum = (name: string) => register(name, { setValueAs: (v) =>  v === "" ? 0: parseFloat(v) })
 
   return (
     <CardContainer>
       <h2 className='text-center'>{t("Curtain")}</h2>
       {error && <Alert variant='danger'>{error}</Alert>}
-      <Form onSubmit={calculate} ref={form}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='text-center'>
-          <Form.Check inline type='radio' label={t("No_Cut")} name='cuts' onClick={() => setCuts(0)} />
-          <Form.Check inline type='radio' label={t("Cut")} name='cuts' onClick={() => setCuts(1)} />
+          <Form.Check inline type='radio' label={t("No_Cut")} {...registerAsNum("cuts")} value={0} />
+          <Form.Check inline type='radio' label={t("Cut")} {...registerAsNum("cuts")} value={1} />
         </div>
         <div className='text-center'>
-          <Form.Check inline type='radio' label={t("One")} name='multiple' onClick={() => setMultiple(1)} />
-          <Form.Check inline type='radio' label={t("OneFive")} name='multiple' onClick={() => setMultiple(1.5)} />
-          <Form.Check inline type='radio' label={t("Two")} name='multiple' onClick={() => setMultiple(2)} />
-          <Form.Check inline type='radio' label={t("TwoFive")} name='multiple' onClick={() => setMultiple(2.5)} />
-          <Form.Check inline type='radio' label={t("Three")} name='multiple' onClick={() => setMultiple(3)} />
-          <Form.Check inline type='radio' label={t("ThreeFive")} name='multiple' onClick={() => setMultiple(3.5)} />
+          <Form.Check inline type='radio' label={t("One")} {...registerAsNum("multiple")} value={0} />
+          <Form.Check inline type='radio' label={t("OneFive")} {...registerAsNum("multiple")} value={1.5} />
+          <Form.Check inline type='radio' label={t("Two")} {...registerAsNum("multiple")} value={2} />
+          <Form.Check inline type='radio' label={t("TwoFive")} {...registerAsNum("multiple")} value={2.5} />
+          <Form.Check inline type='radio' label={t("Three")} {...registerAsNum("multiple")} value={3} />
+          <Form.Check inline type='radio' label={t("ThreeFive")} {...registerAsNum("multiple")} value={3.5} />
         </div>
-        <FormInput label={t("Amount")} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
-        <FormInput label={t("Length")} className='mb-3' controlId='length' onChange={(e) => setLength(+e.target.value)} />
-        <FormInput label={t("Height")} className='mb-3' controlId='height' onChange={(e) => setHeight(+e.target.value)} />
-        <FormInput label={t("Fabric_Width")} className='mb-3' controlId='fabric-width' onChange={(e) => setFabricWidth(+e.target.value)} />
+        <FormInput label={t("Amount")} className='mb-3' controlId='amount' {...registerAsNum("amount")} />
+        <FormInput label={t("Length")} className='mb-3' controlId='length' {...registerAsNum("length")} />
+        <FormInput label={t("Height")} className='mb-3' controlId='height' {...registerAsNum("height")} />
+        <FormInput label={t("Fabric_Width")} className='mb-3' controlId='fabric-width' {...registerAsNum("fabricWidth")} />
         <FormSubmit className='mb-3' calculateLabel={t("Calculate")} clearLabel={t("Clear")} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
