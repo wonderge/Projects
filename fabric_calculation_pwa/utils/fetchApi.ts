@@ -5,7 +5,7 @@ const fetchApi = async (endpoint: string, payload: { [key: string]: number | str
   const res: Response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
   return {
     status: res.status,
-    data: await res.json()
+    result: await res.json()
   };
 }
 

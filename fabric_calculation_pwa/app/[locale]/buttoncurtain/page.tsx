@@ -1,60 +1,54 @@
 "use client"
 
-import { FormEvent, useRef, useState } from 'react'
+import {  useState } from 'react'
 import { Alert, Form } from 'react-bootstrap'
+import { useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
 import CardContainer from '@components/CardContainer'
 import TextWrap from '@components/TextWrap'
 import fetchApi from '@utils/fetchApi'
 import FormInput from '@components/FormInput'
 import FormSubmit from '@components/FormSubmit'
-import { useTranslations } from 'next-intl'
 
 const ButtonCurtain = () => {
+  const { register, handleSubmit, reset } = useForm();
   const t = useTranslations()
-  const [amount, setAmount] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [patternSize, setPatternSize] = useState(0);
-  const [fabricWidth, setFabricWidth] = useState(0);
   const [result, setResult] = useState('');
   const [error, setError] = useState('');
-  const form = useRef<HTMLFormElement>(null);
 
-  const calculate = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const { status, data } = await fetchApi('/api/buttoncurtain', { amount, height, patternSize, fabricWidth });
+  const onSubmit = async (data: any) => {
+    const { status, result } = await fetchApi('/api/buttoncurtain', data);
     setError('');
     if (status !== 200) {
-      setError(data.message!)
+      setError(result.message!)
     } else {
-      const { sides, sizes, buttonAmounts } = data.extras;
+      const { extras: { sides, sizes, buttonAmounts } } = result;
       let extra: string[] = [];
       for (let i = 0; i < sides.length; i++) {
-        extra.push(`${t("SE_Spacing")}: ${sides[i]}cm\n${t("Spacing")}: ${sizes[i]}cm\n${t("Button_Count")}: ${buttonAmounts[i]}pcs\n\n`)
+        extra.push(`${t("SE_Spacing")}: ${sides[i]}cm\n${t("Spacing")}: ${sizes[i]}cm\n${t("Button_Count")}: ${buttonAmounts[i]}pcs`)
       }
-      let msg = `${data.yards}y\n${data.meters}m` + extra.join("");
+      let msg = `${result.yards}y\n${result.meters}m` + extra.join("\n\n");
       setResult(msg)
     }
   }
 
   const clear = () => {
-    form.current!.reset();
-    setAmount(0);
-    setHeight(0);
-    setPatternSize(0);
-    setFabricWidth(0);
+    reset()
     setResult('');
     setError('');
   }
+
+  const registerAsNum = (name: any) => register(name, { setValueAs: (v) => v === "" ? 0 : parseFloat(v)})
 
   return (
     <CardContainer>
       <h2 className='text-center'>{t("Button_Curtain")}</h2>
       {error && <Alert variant='danger'>{error}</Alert>}
-      <Form onSubmit={calculate} ref={form}>
-        <FormInput label={t("Amount")} className='mb-3' controlId='amount' onChange={(e) => setAmount(+e.target.value)} />
-        <FormInput label={t("Height")} className='mb-3' controlId='height' onChange={(e) => setHeight(+e.target.value)} />
-        <FormInput label={t("Pattern_Size")} className='mb-3' controlId='pattern-size' onChange={(e) => setPatternSize(+e.target.value)} />
-        <FormInput label={t("Fabric_Width")} className='mb-3' controlId='fabric-width' onChange={(e) => setFabricWidth(+e.target.value)} />
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormInput label={t("Amount")} className='mb-3' controlId='amount' {...registerAsNum("amount")} />
+        <FormInput label={t("Height")} className='mb-3' controlId='height' {...registerAsNum("height")} />
+        <FormInput label={t("Pattern_Size")} className='mb-3' controlId='pattern-size' {...registerAsNum("patternSize")} />
+        <FormInput label={t("Fabric_Width")} className='mb-3' controlId='fabric-width' {...registerAsNum("fabricWidth")} />
         <FormSubmit className='mb-3' calculateLabel={t("Calculate")} clearLabel={t("Clear")} onClear={clear} />
         <TextWrap>{result}</TextWrap>
       </Form>
