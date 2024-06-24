@@ -9,7 +9,7 @@ const checkInputs: RequestValidator = (req) => {
   const numCheck = isNum(amount, length, width, fabricWidth, fabricAmount);
   const nonZeroCheck = isNotZero(amount, length, width, fabricWidth) || isNotZero(length, width, fabricWidth, fabricAmount)
   const typeCheck = isEnum(type, SideType);
-  const jointsCheck = joints === 0 || joints === 1 || joints === 2
+  const jointsCheck = joints == 0 || joints == 1 || joints == 2
   return numCheck && typeCheck && jointsCheck && nonZeroCheck;
 }
 
