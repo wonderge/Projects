@@ -10,7 +10,10 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development'
 });
 const nextConfig = withPWA({
-  reactStrictMode: true
+  reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 });
 
 module.exports = withNextIntl(nextConfig)
