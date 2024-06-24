@@ -1,21 +1,24 @@
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 import { ReactNode } from "react"
 import { NextIntlClientProvider } from "next-intl"
 import { notFound } from 'next/navigation'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../styles/globals.css';
 
+export const viewport: Viewport = {
+  themeColor: "#fff"
+}
+
 export const metadata: Metadata = {
   title: "FabricCalculation",
   description: "FabricCalculation app",
   icons: { icon: '/icon.ico' },
   manifest: "/manifest.json",
-  themeColor: "#fff",
   other: { google: "notranslate" }
 }
 
 export function generateStaticParams() {
-  return [{locale: 'en'}, {locale: 'zh'}];
+  return [{ locale: 'en' }, { locale: 'zh' }];
 }
 
 const RootLayout = async ({ children, params: { locale } }: { children: ReactNode, params: { locale: string } }) => {

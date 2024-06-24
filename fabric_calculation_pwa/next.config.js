@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const runtimeCaching = require('next-pwa/cache');
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin();
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -11,4 +13,4 @@ const nextConfig = withPWA({
   reactStrictMode: true
 });
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)
